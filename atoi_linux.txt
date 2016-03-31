@@ -1,0 +1,63 @@
+ATOI(3) 		   Linux Programmer's Manual		       ATOI(3)
+
+
+
+NAME
+       atoi, atol, atoll - convert a string to an integer
+
+SYNOPSIS
+       #include <stdlib.h>
+
+       int atoi(const char *nptr);
+       long atol(const char *nptr);
+       long long atoll(const char *nptr);
+
+   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):
+
+       atoll():
+	   _BSD_SOURCE || _SVID_SOURCE || _XOPEN_SOURCE >= 600 ||
+	   _ISOC99_SOURCE || _POSIX_C_SOURCE >= 200112L;
+	   or cc -std=c99
+
+DESCRIPTION
+       The atoi() function converts the initial portion of the string  pointed
+       to by nptr to int.  The behavior is the same as
+
+	   strtol(nptr, NULL, 10);
+
+       except that atoi() does not detect errors.
+
+       The atol() and atoll() functions behave the same as atoi(), except that
+       they convert the initial portion of the string to their return type  of
+       long or long long.
+
+RETURN VALUE
+       The converted value.
+
+ATTRIBUTES
+   Multithreading (see pthreads(7))
+       The  atoi(),  atol(), and atoll() functions are thread-safe with excep‐
+       tions.  These functions can be safely used  in  multithreaded  applica‐
+       tions,  as long as setlocale(3) is not called to change the locale dur‐
+       ing their execution.
+
+CONFORMING TO
+       SVr4, POSIX.1-2001, 4.3BSD, C99.   C89  and  POSIX.1-1996  include  the
+       functions atoi() and atol() only.
+
+NOTES
+       Linux  libc  provided atoq() as an obsolete name for atoll(); atoq() is
+       not provided by glibc.
+
+SEE ALSO
+       atof(3), strtod(3), strtol(3), strtoul(3)
+
+COLOPHON
+       This page is part of release 3.74 of the Linux  man-pages  project.   A
+       description  of	the project, information about reporting bugs, and the
+       latest	 version    of	  this	  page,    can	   be	  found     at
+       http://www.kernel.org/doc/man-pages/.
+
+
+
+GNU				  2014-08-19			       ATOI(3)
