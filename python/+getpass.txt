@@ -1,0 +1,118 @@
+Help on module getpass:
+
+NAME
+    getpass - Utilities to get a password and/or the current user name.
+
+FILE
+    /usr/lib/python2.7/getpass.py
+
+MODULE DOCS
+    http://docs.python.org/library/getpass
+
+DESCRIPTION
+    getpass(prompt[, stream]) - Prompt for a password, with echo turned off.
+    getuser() - Get the user name from the environment or password database.
+    
+    GetPassWarning - This UserWarning is issued when getpass() cannot prevent
+                     echoing of the password contents while reading.
+    
+    On Windows, the msvcrt module will be used.
+    On the Mac EasyDialogs.AskPassword is used, if available.
+
+CLASSES
+    exceptions.UserWarning(exceptions.Warning)
+        GetPassWarning
+    
+    class GetPassWarning(exceptions.UserWarning)
+     |  Method resolution order:
+     |      GetPassWarning
+     |      exceptions.UserWarning
+     |      exceptions.Warning
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.UserWarning:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.UserWarning:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+FUNCTIONS
+    getpass = unix_getpass(prompt='Password: ', stream=None)
+        Prompt for a password, with echo turned off.
+        
+        Args:
+          prompt: Written on stream to ask for the input.  Default: 'Password: '
+          stream: A writable file object to display the prompt.  Defaults to
+                  the tty.  If no tty is available defaults to sys.stderr.
+        Returns:
+          The seKr3t input.
+        Raises:
+          EOFError: If our input tty or stdin was closed.
+          GetPassWarning: When we were unable to turn echo off on the input.
+        
+        Always restores terminal settings before returning.
+    
+    getuser()
+        Get the username from the environment or password database.
+        
+        First try various environment variables, then the password
+        database.  This works on Windows as long as USERNAME is set.
+
+DATA
+    __all__ = ['getpass', 'getuser', 'GetPassWarning']
+
+

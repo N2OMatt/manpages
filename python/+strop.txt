@@ -1,0 +1,180 @@
+Help on built-in module strop:
+
+NAME
+    strop - Common string manipulations, optimized for speed.
+
+FILE
+    (built-in)
+
+DESCRIPTION
+    Always use "import string" rather than referencing
+    this module directly.
+
+FUNCTIONS
+    atof(...)
+        atof(s) -> float
+        
+        Return the floating point number represented by the string s.
+    
+    atoi(...)
+        atoi(s [,base]) -> int
+        
+        Return the integer represented by the string s in the given
+        base, which defaults to 10.  The string s must consist of one
+        or more digits, possibly preceded by a sign.  If base is 0, it
+        is chosen from the leading characters of s, 0 for octal, 0x or
+        0X for hexadecimal.  If base is 16, a preceding 0x or 0X is
+        accepted.
+    
+    atol(...)
+        atol(s [,base]) -> long
+        
+        Return the long integer represented by the string s in the
+        given base, which defaults to 10.  The string s must consist
+        of one or more digits, possibly preceded by a sign.  If base
+        is 0, it is chosen from the leading characters of s, 0 for
+        octal, 0x or 0X for hexadecimal.  If base is 16, a preceding
+        0x or 0X is accepted.  A trailing L or l is not accepted,
+        unless base is 0.
+    
+    capitalize(...)
+        capitalize(s) -> string
+        
+        Return a copy of the string s with only its first character
+        capitalized.
+    
+    count(...)
+        count(s, sub[, start[, end]]) -> int
+        
+        Return the number of occurrences of substring sub in string
+        s[start:end].  Optional arguments start and end are
+        interpreted as in slice notation.
+    
+    expandtabs(...)
+        expandtabs(string, [tabsize]) -> string
+        
+        Expand tabs in a string, i.e. replace them by one or more spaces,
+        depending on the current column and the given tab size (default 8).
+        The column number is reset to zero after each newline occurring in the
+        string.  This doesn't understand other non-printing characters.
+    
+    find(...)
+        find(s, sub [,start [,end]]) -> in
+        
+        Return the lowest index in s where substring sub is found,
+        such that sub is contained within s[start,end].  Optional
+        arguments start and end are interpreted as in slice notation.
+        
+        Return -1 on failure.
+    
+    join(...)
+        join(list [,sep]) -> string
+        joinfields(list [,sep]) -> string
+        
+        Return a string composed of the words in list, with
+        intervening occurrences of sep.  Sep defaults to a single
+        space.
+        
+        (join and joinfields are synonymous)
+    
+    joinfields(...)
+        join(list [,sep]) -> string
+        joinfields(list [,sep]) -> string
+        
+        Return a string composed of the words in list, with
+        intervening occurrences of sep.  Sep defaults to a single
+        space.
+        
+        (join and joinfields are synonymous)
+    
+    lower(...)
+        lower(s) -> string
+        
+        Return a copy of the string s converted to lowercase.
+    
+    lstrip(...)
+        lstrip(s) -> string
+        
+        Return a copy of the string s with leading whitespace removed.
+    
+    maketrans(...)
+        maketrans(frm, to) -> string
+        
+        Return a translation table (a string of 256 bytes long)
+        suitable for use in string.translate.  The strings frm and to
+        must be of the same length.
+    
+    replace(...)
+        replace (str, old, new[, maxsplit]) -> string
+        
+        Return a copy of string str with all occurrences of substring
+        old replaced by new. If the optional argument maxsplit is
+        given, only the first maxsplit occurrences are replaced.
+    
+    rfind(...)
+        rfind(s, sub [,start [,end]]) -> int
+        
+        Return the highest index in s where substring sub is found,
+        such that sub is contained within s[start,end].  Optional
+        arguments start and end are interpreted as in slice notation.
+        
+        Return -1 on failure.
+    
+    rstrip(...)
+        rstrip(s) -> string
+        
+        Return a copy of the string s with trailing whitespace removed.
+    
+    split(...)
+        split(s [,sep [,maxsplit]]) -> list of strings
+        splitfields(s [,sep [,maxsplit]]) -> list of strings
+        
+        Return a list of the words in the string s, using sep as the
+        delimiter string.  If maxsplit is nonzero, splits into at most
+        maxsplit words.  If sep is not specified, any whitespace string
+        is a separator.  Maxsplit defaults to 0.
+        
+        (split and splitfields are synonymous)
+    
+    splitfields(...)
+        split(s [,sep [,maxsplit]]) -> list of strings
+        splitfields(s [,sep [,maxsplit]]) -> list of strings
+        
+        Return a list of the words in the string s, using sep as the
+        delimiter string.  If maxsplit is nonzero, splits into at most
+        maxsplit words.  If sep is not specified, any whitespace string
+        is a separator.  Maxsplit defaults to 0.
+        
+        (split and splitfields are synonymous)
+    
+    strip(...)
+        strip(s) -> string
+        
+        Return a copy of the string s with leading and trailing
+        whitespace removed.
+    
+    swapcase(...)
+        swapcase(s) -> string
+        
+        Return a copy of the string s with upper case characters
+        converted to lowercase and vice versa.
+    
+    translate(...)
+        translate(s,table [,deletechars]) -> string
+        
+        Return a copy of the string s, where all characters occurring
+        in the optional argument deletechars are removed, and the
+        remaining characters have been mapped through the given
+        translation table, which must be a string of length 256.
+    
+    upper(...)
+        upper(s) -> string
+        
+        Return a copy of the string s converted to uppercase.
+
+DATA
+    lowercase = 'abcdefghijklmnopqrstuvwxyz'
+    uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    whitespace = '\t\n\x0b\x0c\r '
+
+

@@ -1,0 +1,235 @@
+Help on module stringold:
+
+NAME
+    stringold - Common string manipulations.
+
+FILE
+    /usr/lib/python2.7/stringold.py
+
+MODULE DOCS
+    http://docs.python.org/library/stringold
+
+DESCRIPTION
+    Public module variables:
+    
+    whitespace -- a string containing all characters considered whitespace
+    lowercase -- a string containing all characters considered lowercase letters
+    uppercase -- a string containing all characters considered uppercase letters
+    letters -- a string containing all characters considered letters
+    digits -- a string containing all characters considered decimal digits
+    hexdigits -- a string containing all characters considered hexadecimal digits
+    octdigits -- a string containing all characters considered octal digits
+
+FUNCTIONS
+    atof(s)
+        atof(s) -> float
+        
+        Return the floating point number represented by the string s.
+    
+    atoi(*args)
+        atoi(s [,base]) -> int
+        
+        Return the integer represented by the string s in the given
+        base, which defaults to 10.  The string s must consist of one
+        or more digits, possibly preceded by a sign.  If base is 0, it
+        is chosen from the leading characters of s, 0 for octal, 0x or
+        0X for hexadecimal.  If base is 16, a preceding 0x or 0X is
+        accepted.
+    
+    atol(*args)
+        atol(s [,base]) -> long
+        
+        Return the long integer represented by the string s in the
+        given base, which defaults to 10.  The string s must consist
+        of one or more digits, possibly preceded by a sign.  If base
+        is 0, it is chosen from the leading characters of s, 0 for
+        octal, 0x or 0X for hexadecimal.  If base is 16, a preceding
+        0x or 0X is accepted.  A trailing L or l is not accepted,
+        unless base is 0.
+    
+    capitalize(s)
+        capitalize(s) -> string
+        
+        Return a copy of the string s with only its first character
+        capitalized.
+    
+    capwords(s, sep=None)
+        capwords(s, [sep]) -> string
+        
+        Split the argument into words using split, capitalize each
+        word using capitalize, and join the capitalized words using
+        join. Note that this replaces runs of whitespace characters by
+        a single space.
+    
+    center(s, width)
+        center(s, width) -> string
+        
+        Return a center version of s, in a field of the specified
+        width. padded with spaces as needed.  The string is never
+        truncated.
+    
+    count(s, *args)
+        count(s, sub[, start[,end]]) -> int
+        
+        Return the number of occurrences of substring sub in string
+        s[start:end].  Optional arguments start and end are
+        interpreted as in slice notation.
+    
+    expandtabs(s, tabsize=8)
+        expandtabs(s [,tabsize]) -> string
+        
+        Return a copy of the string s with all tab characters replaced
+        by the appropriate number of spaces, depending on the current
+        column, and the tabsize (default 8).
+    
+    find(s, *args)
+        find(s, sub [,start [,end]]) -> in
+        
+        Return the lowest index in s where substring sub is found,
+        such that sub is contained within s[start,end].  Optional
+        arguments start and end are interpreted as in slice notation.
+        
+        Return -1 on failure.
+    
+    index(s, *args)
+        index(s, sub [,start [,end]]) -> int
+        
+        Like find but raises ValueError when the substring is not found.
+    
+    join(words, sep=' ')
+        join(list [,sep]) -> string
+        
+        Return a string composed of the words in list, with
+        intervening occurrences of sep.  The default separator is a
+        single space.
+        
+        (joinfields and join are synonymous)
+    
+    joinfields = join(words, sep=' ')
+        join(list [,sep]) -> string
+        
+        Return a string composed of the words in list, with
+        intervening occurrences of sep.  The default separator is a
+        single space.
+        
+        (joinfields and join are synonymous)
+    
+    ljust(s, width)
+        ljust(s, width) -> string
+        
+        Return a left-justified version of s, in a field of the
+        specified width, padded with spaces as needed.  The string is
+        never truncated.
+    
+    lower(s)
+        lower(s) -> string
+        
+        Return a copy of the string s converted to lowercase.
+    
+    lstrip(s)
+        lstrip(s) -> string
+        
+        Return a copy of the string s with leading whitespace removed.
+    
+    maketrans(...)
+        maketrans(frm, to) -> string
+        
+        Return a translation table (a string of 256 bytes long)
+        suitable for use in string.translate.  The strings frm and to
+        must be of the same length.
+    
+    replace(s, old, new, maxsplit=0)
+        replace (str, old, new[, maxsplit]) -> string
+        
+        Return a copy of string str with all occurrences of substring
+        old replaced by new. If the optional argument maxsplit is
+        given, only the first maxsplit occurrences are replaced.
+    
+    rfind(s, *args)
+        rfind(s, sub [,start [,end]]) -> int
+        
+        Return the highest index in s where substring sub is found,
+        such that sub is contained within s[start,end].  Optional
+        arguments start and end are interpreted as in slice notation.
+        
+        Return -1 on failure.
+    
+    rindex(s, *args)
+        rindex(s, sub [,start [,end]]) -> int
+        
+        Like rfind but raises ValueError when the substring is not found.
+    
+    rjust(s, width)
+        rjust(s, width) -> string
+        
+        Return a right-justified version of s, in a field of the
+        specified width, padded with spaces as needed.  The string is
+        never truncated.
+    
+    rstrip(s)
+        rstrip(s) -> string
+        
+        Return a copy of the string s with trailing whitespace
+        removed.
+    
+    split(s, sep=None, maxsplit=0)
+        split(str [,sep [,maxsplit]]) -> list of strings
+        
+        Return a list of the words in the string s, using sep as the
+        delimiter string.  If maxsplit is nonzero, splits into at most
+        maxsplit words If sep is not specified, any whitespace string
+        is a separator.  Maxsplit defaults to 0.
+        
+        (split and splitfields are synonymous)
+    
+    splitfields = split(s, sep=None, maxsplit=0)
+        split(str [,sep [,maxsplit]]) -> list of strings
+        
+        Return a list of the words in the string s, using sep as the
+        delimiter string.  If maxsplit is nonzero, splits into at most
+        maxsplit words If sep is not specified, any whitespace string
+        is a separator.  Maxsplit defaults to 0.
+        
+        (split and splitfields are synonymous)
+    
+    strip(s)
+        strip(s) -> string
+        
+        Return a copy of the string s with leading and trailing
+        whitespace removed.
+    
+    swapcase(s)
+        swapcase(s) -> string
+        
+        Return a copy of the string s with upper case characters
+        converted to lowercase and vice versa.
+    
+    translate(s, table, deletions='')
+        translate(s,table [,deletechars]) -> string
+        
+        Return a copy of the string s, where all characters occurring
+        in the optional argument deletechars are removed, and the
+        remaining characters have been mapped through the given
+        translation table, which must be a string of length 256.
+    
+    upper(s)
+        upper(s) -> string
+        
+        Return a copy of the string s converted to uppercase.
+    
+    zfill(x, width)
+        zfill(x, width) -> string
+        
+        Pad a numeric string x with zeros on the left, to fill a field
+        of the specified width.  The string x is never truncated.
+
+DATA
+    digits = '0123456789'
+    hexdigits = '0123456789abcdefABCDEF'
+    letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    lowercase = 'abcdefghijklmnopqrstuvwxyz'
+    octdigits = '01234567'
+    uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    whitespace = '\t\n\x0b\x0c\r '
+
+

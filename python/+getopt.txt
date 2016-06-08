@@ -1,0 +1,212 @@
+Help on module getopt:
+
+NAME
+    getopt - Parser for command line options.
+
+FILE
+    /usr/lib/python2.7/getopt.py
+
+MODULE DOCS
+    http://docs.python.org/library/getopt
+
+DESCRIPTION
+    This module helps scripts to parse the command line arguments in
+    sys.argv.  It supports the same conventions as the Unix getopt()
+    function (including the special meanings of arguments of the form `-'
+    and `--').  Long options similar to those supported by GNU software
+    may be used as well via an optional third argument.  This module
+    provides two functions and an exception:
+    
+    getopt() -- Parse command line options
+    gnu_getopt() -- Like getopt(), but allow option and non-option arguments
+    to be intermixed.
+    GetoptError -- exception (class) raised with 'opt' attribute, which is the
+    option involved with the exception.
+
+CLASSES
+    exceptions.Exception(exceptions.BaseException)
+        GetoptError
+    
+    class GetoptError(exceptions.Exception)
+     |  Method resolution order:
+     |      GetoptError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, msg, opt='')
+     |  
+     |  __str__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  msg = ''
+     |  
+     |  opt = ''
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    error = class GetoptError(exceptions.Exception)
+     |  Method resolution order:
+     |      GetoptError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, msg, opt='')
+     |  
+     |  __str__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  msg = ''
+     |  
+     |  opt = ''
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+FUNCTIONS
+    getopt(args, shortopts, longopts=[])
+        getopt(args, options[, long_options]) -> opts, args
+        
+        Parses command line options and parameter list.  args is the
+        argument list to be parsed, without the leading reference to the
+        running program.  Typically, this means "sys.argv[1:]".  shortopts
+        is the string of option letters that the script wants to
+        recognize, with options that require an argument followed by a
+        colon (i.e., the same format that Unix getopt() uses).  If
+        specified, longopts is a list of strings with the names of the
+        long options which should be supported.  The leading '--'
+        characters should not be included in the option name.  Options
+        which require an argument should be followed by an equal sign
+        ('=').
+        
+        The return value consists of two elements: the first is a list of
+        (option, value) pairs; the second is the list of program arguments
+        left after the option list was stripped (this is a trailing slice
+        of the first argument).  Each option-and-value pair returned has
+        the option as its first element, prefixed with a hyphen (e.g.,
+        '-x'), and the option argument as its second element, or an empty
+        string if the option has no argument.  The options occur in the
+        list in the same order in which they were found, thus allowing
+        multiple occurrences.  Long and short options may be mixed.
+    
+    gnu_getopt(args, shortopts, longopts=[])
+        getopt(args, options[, long_options]) -> opts, args
+        
+        This function works like getopt(), except that GNU style scanning
+        mode is used by default. This means that option and non-option
+        arguments may be intermixed. The getopt() function stops
+        processing options as soon as a non-option argument is
+        encountered.
+        
+        If the first character of the option string is `+', or if the
+        environment variable POSIXLY_CORRECT is set, then option
+        processing stops as soon as a non-option argument is encountered.
+
+DATA
+    __all__ = ['GetoptError', 'error', 'getopt', 'gnu_getopt']
+
+

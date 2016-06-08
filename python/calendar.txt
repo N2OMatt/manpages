@@ -1,0 +1,201 @@
+Help on module calendar:
+
+NAME
+    calendar - Calendar printing functions
+
+FILE
+    /usr/lib/python2.7/calendar.py
+
+MODULE DOCS
+    http://docs.python.org/library/calendar
+
+DESCRIPTION
+    Note when comparing these calendars to the ones printed by cal(1): By
+    default, these calendars have Monday as the first day of the week, and
+    Sunday as the last (the European convention). Use setfirstweekday() to
+    set the first day of the week (0=Monday, 6=Sunday).
+
+CLASSES
+    exceptions.ValueError(exceptions.StandardError)
+        IllegalMonthError
+        IllegalWeekdayError
+    
+    class IllegalMonthError(exceptions.ValueError)
+     |  # Exceptions raised for bad input
+     |  
+     |  Method resolution order:
+     |      IllegalMonthError
+     |      exceptions.ValueError
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, month)
+     |  
+     |  __str__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.ValueError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class IllegalWeekdayError(exceptions.ValueError)
+     |  Method resolution order:
+     |      IllegalWeekdayError
+     |      exceptions.ValueError
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, weekday)
+     |  
+     |  __str__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.ValueError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+FUNCTIONS
+    calendar = formatyear(self, theyear, w=2, l=1, c=6, m=3) method of TextCalendar instance
+        Returns a year's calendar as a multi-line string.
+    
+    firstweekday = getfirstweekday(self) method of TextCalendar instance
+    
+    isleap(year)
+        Return True for leap years, False for non-leap years.
+    
+    leapdays(y1, y2)
+        Return number of leap years in range [y1, y2).
+        Assume y1 <= y2.
+    
+    month = formatmonth(self, theyear, themonth, w=0, l=0) method of TextCalendar instance
+        Return a month's calendar string (multi-line).
+    
+    monthcalendar = monthdayscalendar(self, year, month) method of TextCalendar instance
+        Return a matrix representing a month's calendar.
+        Each row represents a week; days outside this month are zero.
+    
+    monthrange(year, month)
+        Return weekday (0-6 ~ Mon-Sun) and number of days (28-31) for
+        year, month.
+    
+    prcal = pryear(self, theyear, w=0, l=0, c=6, m=3) method of TextCalendar instance
+        Print a year's calendar.
+    
+    prmonth(self, theyear, themonth, w=0, l=0) method of TextCalendar instance
+        Print a month's calendar.
+    
+    setfirstweekday(firstweekday)
+    
+    timegm(tuple)
+        Unrelated but handy function to calculate Unix timestamp from GMT.
+    
+    weekday(year, month, day)
+        Return weekday (0-6 ~ Mon-Sun) for year (1970-...), month (1-12),
+        day (1-31).
+
+DATA
+    __all__ = ['IllegalMonthError', 'IllegalWeekdayError', 'setfirstweekda...
+    day_abbr = <calendar._localized_day instance>
+    day_name = <calendar._localized_day instance>
+    month_abbr = <calendar._localized_month instance>
+    month_name = <calendar._localized_month instance>
+
+

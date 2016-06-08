@@ -1,0 +1,20 @@
+Help on built-in module _sha:
+
+NAME
+    _sha
+
+FILE
+    (built-in)
+
+FUNCTIONS
+    new(...)
+        Return a new SHA hashing object.  An optional string argument
+        may be provided; if present, this string will be automatically
+        hashed.
+
+DATA
+    blocksize = 1
+    digest_size = 20
+    digestsize = 20
+
+

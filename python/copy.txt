@@ -1,0 +1,143 @@
+Help on module copy:
+
+NAME
+    copy - Generic (shallow and deep) copying operations.
+
+FILE
+    /usr/lib/python2.7/copy.py
+
+MODULE DOCS
+    http://docs.python.org/library/copy
+
+DESCRIPTION
+    Interface summary:
+    
+            import copy
+    
+            x = copy.copy(y)        # make a shallow copy of y
+            x = copy.deepcopy(y)    # make a deep copy of y
+    
+    For module specific errors, copy.Error is raised.
+    
+    The difference between shallow and deep copying is only relevant for
+    compound objects (objects that contain other objects, like lists or
+    class instances).
+    
+    - A shallow copy constructs a new compound object and then (to the
+      extent possible) inserts *the same objects* into it that the
+      original contains.
+    
+    - A deep copy constructs a new compound object and then, recursively,
+      inserts *copies* into it of the objects found in the original.
+    
+    Two problems often exist with deep copy operations that don't exist
+    with shallow copy operations:
+    
+     a) recursive objects (compound objects that, directly or indirectly,
+        contain a reference to themselves) may cause a recursive loop
+    
+     b) because deep copy copies *everything* it may copy too much, e.g.
+        administrative data structures that should be shared even between
+        copies
+    
+    Python's deep copy operation avoids these problems by:
+    
+     a) keeping a table of objects already copied during the current
+        copying pass
+    
+     b) letting user-defined classes override the copying operation or the
+        set of components copied
+    
+    This version does not copy types like module, class, function, method,
+    nor stack trace, stack frame, nor file, socket, window, nor array, nor
+    any similar types.
+    
+    Classes can use the same interfaces to control copying that they use
+    to control pickling: they can define methods called __getinitargs__(),
+    __getstate__() and __setstate__().  See the documentation for module
+    "pickle" for information on these methods.
+
+CLASSES
+    exceptions.Exception(exceptions.BaseException)
+        Error
+    
+    class Error(exceptions.Exception)
+     |  Method resolution order:
+     |      Error
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.Exception:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+FUNCTIONS
+    copy(x)
+        Shallow copy operation on arbitrary Python objects.
+        
+        See the module's __doc__ string for more info.
+    
+    deepcopy(x, memo=None, _nil=[])
+        Deep copy operation on arbitrary Python objects.
+        
+        See the module's __doc__ string for more info.
+
+DATA
+    __all__ = ['Error', 'copy', 'deepcopy']
+
+

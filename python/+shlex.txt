@@ -1,0 +1,52 @@
+Help on module shlex:
+
+NAME
+    shlex - A lexical analyzer class for simple shell-like syntaxes.
+
+FILE
+    /usr/lib/python2.7/shlex.py
+
+MODULE DOCS
+    http://docs.python.org/library/shlex
+
+CLASSES
+    shlex
+    
+    class shlex
+     |  A lexical analyzer class for simple shell-like syntaxes.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, instream=None, infile=None, posix=False)
+     |  
+     |  __iter__(self)
+     |  
+     |  error_leader(self, infile=None, lineno=None)
+     |      Emit a C-compiler-like, Emacs-friendly error-message leader.
+     |  
+     |  get_token(self)
+     |      Get a token from the input stream (or from stack if it's nonempty)
+     |  
+     |  next(self)
+     |  
+     |  pop_source(self)
+     |      Pop the input source stack.
+     |  
+     |  push_source(self, newstream, newfile=None)
+     |      Push an input source onto the lexer's input source stack.
+     |  
+     |  push_token(self, tok)
+     |      Push a token onto the stack popped by the get_token method
+     |  
+     |  read_token(self)
+     |  
+     |  sourcehook(self, newfile)
+     |      Hook called on a filename to be sourced.
+
+FUNCTIONS
+    split(s, comments=False, posix=True)
+
+DATA
+    __all__ = ['shlex', 'split']
+
+

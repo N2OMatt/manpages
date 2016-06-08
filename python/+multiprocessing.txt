@@ -1,0 +1,343 @@
+Help on package multiprocessing:
+
+NAME
+    multiprocessing
+
+FILE
+    /usr/lib/python2.7/multiprocessing/__init__.py
+
+MODULE DOCS
+    http://docs.python.org/library/multiprocessing
+
+DESCRIPTION
+    # Package analogous to 'threading.py' but using processes
+    #
+    # multiprocessing/__init__.py
+    #
+    # This package is intended to duplicate the functionality (and much of
+    # the API) of threading.py but uses processes instead of threads.  A
+    # subpackage 'multiprocessing.dummy' has the same API but is a simple
+    # wrapper for 'threading'.
+    #
+    # Try calling `multiprocessing.doc.main()` to read the html
+    # documentation in a webbrowser.
+    #
+    #
+    # Copyright (c) 2006-2008, R Oudkerk
+    # All rights reserved.
+    #
+    # Redistribution and use in source and binary forms, with or without
+    # modification, are permitted provided that the following conditions
+    # are met:
+    #
+    # 1. Redistributions of source code must retain the above copyright
+    #    notice, this list of conditions and the following disclaimer.
+    # 2. Redistributions in binary form must reproduce the above copyright
+    #    notice, this list of conditions and the following disclaimer in the
+    #    documentation and/or other materials provided with the distribution.
+    # 3. Neither the name of author nor the names of any contributors may be
+    #    used to endorse or promote products derived from this software
+    #    without specific prior written permission.
+    #
+    # THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS "AS IS" AND
+    # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    # ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+    # FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+    # DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+    # OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+    # HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+    # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+    # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+    # SUCH DAMAGE.
+    #
+
+PACKAGE CONTENTS
+    connection
+    dummy (package)
+    forking
+    heap
+    managers
+    pool
+    process
+    queues
+    reduction
+    sharedctypes
+    synchronize
+    util
+
+CLASSES
+    __builtin__.object
+        multiprocessing.process.Process
+    ProcessError(exceptions.Exception)
+        BufferTooShort
+        TimeoutError
+    
+    class BufferTooShort(ProcessError)
+     |  Method resolution order:
+     |      BufferTooShort
+     |      ProcessError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from ProcessError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.Exception:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class Process(__builtin__.object)
+     |  Process objects represent activity that is run in a separate process
+     |  
+     |  The class is analagous to `threading.Thread`
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, group=None, target=None, name=None, args=(), kwargs={})
+     |  
+     |  __repr__(self)
+     |  
+     |  is_alive(self)
+     |      Return whether process is alive
+     |  
+     |  join(self, timeout=None)
+     |      Wait until child process terminates
+     |  
+     |  run(self)
+     |      Method to be run in sub-process; can be overridden in sub-class
+     |  
+     |  start(self)
+     |      Start child process
+     |  
+     |  terminate(self)
+     |      Terminate process; sends SIGTERM signal or uses TerminateProcess()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  authkey
+     |  
+     |  daemon
+     |      Return whether process is a daemon
+     |  
+     |  exitcode
+     |      Return exit code of process or `None` if it has yet to stop
+     |  
+     |  ident
+     |      Return identifier (PID) of process or `None` if it has yet to start
+     |  
+     |  name
+     |  
+     |  pid
+     |      Return identifier (PID) of process or `None` if it has yet to start
+    
+    class TimeoutError(ProcessError)
+     |  Method resolution order:
+     |      TimeoutError
+     |      ProcessError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from ProcessError:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.Exception:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+FUNCTIONS
+    Array(typecode_or_type, size_or_initializer, **kwds)
+        Returns a synchronized shared array
+    
+    BoundedSemaphore(value=1)
+        Returns a bounded semaphore object
+    
+    Condition(lock=None)
+        Returns a condition object
+    
+    Event()
+        Returns an event object
+    
+    JoinableQueue(maxsize=0)
+        Returns a queue object
+    
+    Lock()
+        Returns a non-recursive lock object
+    
+    Manager()
+        Returns a manager associated with a running server process
+        
+        The managers methods such as `Lock()`, `Condition()` and `Queue()`
+        can be used to create shared objects.
+    
+    Pipe(duplex=True)
+        Returns two connection object connected by a pipe
+    
+    Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)
+        Returns a process pool object
+    
+    Queue(maxsize=0)
+        Returns a queue object
+    
+    RLock()
+        Returns a recursive lock object
+    
+    RawArray(typecode_or_type, size_or_initializer)
+        Returns a shared array
+    
+    RawValue(typecode_or_type, *args)
+        Returns a shared object
+    
+    Semaphore(value=1)
+        Returns a semaphore object
+    
+    Value(typecode_or_type, *args, **kwds)
+        Returns a synchronized shared object
+    
+    active_children()
+        Return list of process objects corresponding to live child processes
+    
+    allow_connection_pickling()
+        Install support for sending connections and sockets between processes
+    
+    cpu_count()
+        Returns the number of CPUs in the system
+    
+    current_process()
+        Return process object representing the current process
+    
+    freeze_support()
+        Check whether this is a fake forked process in a frozen executable.
+        If so then run code specified by commandline and exit.
+    
+    get_logger()
+        Return package logger -- if it does not already exist then it is created
+    
+    log_to_stderr(level=None)
+        Turn on logging and add a handler which prints to stderr
+
+DATA
+    SUBDEBUG = 5
+    SUBWARNING = 25
+    __all__ = ['Process', 'current_process', 'active_children', 'freeze_su...
+    __author__ = 'R. Oudkerk (r.m.oudkerk@gmail.com)'
+    __version__ = '0.70a1'
+
+VERSION
+    0.70a1
+
+AUTHOR
+    R. Oudkerk (r.m.oudkerk@gmail.com)
+
+

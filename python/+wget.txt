@@ -1,0 +1,125 @@
+Help on module wget:
+
+NAME
+    wget - Download utility as an easy way to get file from the net
+
+FILE
+    /usr/local/lib/python2.7/dist-packages/wget.py
+
+DESCRIPTION
+      python -m wget <URL>
+      python wget.py <URL>
+    
+    Downloads: http://pypi.python.org/pypi/wget/
+    Development: http://bitbucket.org/techtonik/python-wget/
+    
+    wget.py is not option compatible with Unix wget utility,
+    to make command line interface intuitive for new people.
+    
+    Public domain by anatoly techtonik <techtonik@gmail.com>
+    Also available under the terms of MIT license
+    Copyright (c) 2010-2015 anatoly techtonik
+
+FUNCTIONS
+    bar_adaptive(current, total, width=80)
+        Return progress bar string for given values in one of three
+        styles depending on available width:
+        
+            [..  ] downloaded / total
+            downloaded / total
+            [.. ]
+        
+        if total value is unknown or <= 0, show bytes counter using two
+        adaptive styles:
+        
+            %s / unknown
+            %s
+        
+        if there is not enough space on the screen, do not display anything
+        
+        returned string doesn't include control characters like  used to
+        place cursor at the beginning of the line to erase previous content.
+        
+        this function leaves one free character at the end of string to
+        avoid automatic linefeed on Windows.
+    
+    bar_thermometer(current, total, width=80)
+        Return thermometer style progress bar string. `total` argument
+        can not be zero. The minimum size of bar returned is 3. Example:
+        
+            [..........            ]
+        
+        Control and trailing symbols ( and spaces) are not included.
+        See `bar_adaptive` for more information.
+    
+    callback_progress(blocks, block_size, total_size, bar_function)
+        callback function for urlretrieve that is called when connection is
+        created and when once for each block
+        
+        draws adaptive progress bar in terminal/console
+        
+        use sys.stdout.write() instead of "print,", because it allows one more
+        symbol at the line end without linefeed on Windows
+        
+        :param blocks: number of blocks transferred so far
+        :param block_size: in bytes
+        :param total_size: in bytes, can be -1 if server doesn't return it
+        :param bar_function: another callback function to visualize progress
+    
+    detect_filename(url=None, out=None, headers=None, default='download.wget')
+        Return filename for saving file. If no filename is detected from output
+        argument, url or headers, return default (download.wget)
+    
+    download(url, out=None, bar=<function bar_adaptive>)
+        High level function, which downloads URL into tmp file in current
+        directory and then renames it to filename autodetected from either URL
+        or HTTP headers.
+        
+        :param bar: function to track download progress (visualize etc.)
+        :param out: output filename or directory
+        :return:    filename where URL is downloaded to
+    
+    filename_fix_existing(filename)
+        Expands name portion of filename with numeric ' (x)' suffix to
+        return filename that doesn't exist already.
+    
+    filename_from_headers(headers)
+        Detect filename from Content-Disposition headers if present.
+        http://greenbytes.de/tech/tc2231/
+        
+        :param: headers as dict, list or string
+        :return: filename from content-disposition header or None
+    
+    filename_from_url(url)
+        :return: detected filename as unicode or None
+    
+    get_console_width()
+        Return width of available window area. Autodetection works for
+        Windows and POSIX platforms. Returns 80 for others
+        
+        Code from http://bitbucket.org/techtonik/python-pager
+    
+    to_unicode(filename)
+        :return: filename decoded from utf-8 to unicode
+    
+    win32_unicode_console()
+        # enable unicode output to windows console
+        # https://stackoverflow.com/questions/878972/windows-cmd-encoding-change-causes-python-crash
+    
+    win32_utf8_argv()
+        Uses shell32.GetCommandLineArgvW to get sys.argv as a list of Unicode
+        strings.
+        
+        Versions 2.x of Python don't support Unicode in sys.argv on
+        Windows, with the underlying Windows API instead replacing multi-byte
+        characters with '?'.
+
+DATA
+    PY3K = False
+    __version__ = '3.2'
+    usage = 'usage: wget.py [options] URL\n\noptions:\n  -o --ou...ut file...
+
+VERSION
+    3.2
+
+

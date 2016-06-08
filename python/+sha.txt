@@ -1,0 +1,30 @@
+Help on module sha:
+
+NAME
+    sha
+
+FILE
+    /usr/lib/python2.7/sha.py
+
+MODULE DOCS
+    http://docs.python.org/library/sha
+
+DESCRIPTION
+    # $Id$
+    #
+    #  Copyright (C) 2005   Gregory P. Smith (greg@krypto.org)
+    #  Licensed to PSF under a Contributor Agreement.
+
+FUNCTIONS
+    new = openssl_sha1(...)
+        Returns a sha1 hash object; optionally initialized with a string
+    
+    sha = openssl_sha1(...)
+        Returns a sha1 hash object; optionally initialized with a string
+
+DATA
+    blocksize = 1
+    digest_size = 20
+    digestsize = 20
+
+

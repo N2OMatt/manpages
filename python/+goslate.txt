@@ -1,0 +1,311 @@
+Help on module goslate:
+
+NAME
+    goslate - Goslate: Free Google Translate API
+
+FILE
+    /usr/local/lib/python2.7/dist-packages/goslate.py
+
+CLASSES
+    __builtin__.object
+        Goslate
+    exceptions.Exception(exceptions.BaseException)
+        Error
+    
+    class Error(exceptions.Exception)
+     |  Error type
+     |  
+     |  Method resolution order:
+     |      Error
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.Exception:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class Goslate(__builtin__.object)
+     |  All goslate API lives in this class
+     |  
+     |  You have to first create an instance of Goslate to use this API
+     |  
+     |  :param writing: The translation writing system. Currently 3 values are valid
+     |  
+     |               - :const:`WRITING_NATIVE` for native writing system
+     |               - :const:`WRITING_ROMAN` for roman writing system
+     |               - :const:`WRITING_NATIVE_AND_ROMAN` for both native and roman writing system. output will be a tuple in this case
+     |  
+     |  :param opener: The url opener to be used for HTTP/HTTPS query.
+     |                 If not provide, a default opener will be used.
+     |                 For proxy support you should provide an ``opener`` with ``ProxyHandler``
+     |  :type opener: `urllib2.OpenerDirector <http://docs.python.org/2/library/urllib2.html#urllib2.OpenerDirector>`_
+     |      
+     |  :param retry_times: how many times to retry when connection reset error occured. Default to 4
+     |  :type retry_times: int
+     |      
+     |  :type max_workers: int
+     |  
+     |  :param timeout: HTTP request timeout in seconds
+     |  :type timeout: int/float
+     |  
+     |  :param debug: Turn on/off the debug output
+     |  :type debug: bool
+     |  
+     |  :param service_urls: google translate url list. URLs will be used randomly for better concurrent performance. For example ``['http://translate.google.com', 'http://translate.google.de']``
+     |  :type service_urls: single string or a sequence of strings
+     |  
+     |  :param executor: the multi thread executor for handling batch input, default to a global ``futures.ThreadPoolExecutor`` instance with 120 max thead workers if ``futures`` is avalible. Set to None to disable multi thread support
+     |  :type executor: ``futures.ThreadPoolExecutor``
+     |  
+     |  .. note:: multi thread worker relys on `futures <https://pypi.python.org/pypi/futures>`_, if it is not avalible, ``goslate`` will work under single thread mode
+     |  
+     |  :Example:
+     |  
+     |      >>> import goslate
+     |      >>> 
+     |      >>> # Create a Goslate instance first
+     |      >>> gs = goslate.Goslate()
+     |      >>> 
+     |      >>> # You could get all supported language list through get_languages
+     |      >>> languages = gs.get_languages()
+     |      >>> print(languages['en'])
+     |      English
+     |      >>> 
+     |      >>> # Tranlate English into German
+     |      >>> print(gs.translate('Hello', 'de'))
+     |      Hallo
+     |      >>> # Detect the language of the text
+     |      >>> print(gs.detect('some English words'))
+     |      en
+     |      >>> # Get goslate object dedicated for romanlized translation (romanlization)
+     |      >>> gs_roman = goslate.Goslate(WRITING_ROMAN)
+     |      >>> print(gs_roman.translate('hello', 'zh'))
+     |      Nín hǎo
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, writing=(u'trans',), opener=None, retry_times=4, executor=<concurrent.futures.thread.ThreadPoolExecutor object>, timeout=4, service_urls=(u'http://translate.google.com',), debug=False)
+     |  
+     |  detect(self, text)
+     |      Detect language of the input text
+     |      
+     |      .. note::
+     |      
+     |       - Input all source strings at once. Goslate will detect concurrently for maximize speed.
+     |       - `futures <https://pypi.python.org/pypi/futures>`_ is required for best performance.
+     |       - It returns generator on batch input in order to better fit pipeline architecture.
+     |      
+     |      :param text: The source text(s) whose language you want to identify.
+     |                   Batch detection is supported via sequence input
+     |      :type text: UTF-8 str; unicode; sequence of string
+     |      :returns: the language code(s)
+     |      
+     |        - unicode: on single string input
+     |        - generator of unicode: on batch input of string sequence
+     |      
+     |      :raises: :class:`Error` if parameter type or value is not valid
+     |      
+     |      Example::
+     |      
+     |       >>> gs = Goslate()
+     |       >>> print(gs.detect('hello world'))
+     |       en
+     |       >>> for i in gs.detect([u'hello', 'Hallo']):
+     |       ...     print(i)
+     |       ...
+     |       en
+     |       de
+     |  
+     |  get_languages(self)
+     |      Discover supported languages
+     |      
+     |      It returns iso639-1 language codes for
+     |      `supported languages <https://developers.google.com/translate/v2/using_rest#language-params>`_
+     |      for translation. Some language codes also include a country code, like zh-CN or zh-TW.
+     |      
+     |      .. note:: It only queries Google once for the first time and use cached result afterwards
+     |      
+     |      :returns: a dict of all supported language code and language name mapping ``{'language-code', 'Language name'}``
+     |      
+     |      :Example:
+     |      
+     |      >>> languages = Goslate().get_languages()
+     |      >>> assert 'zh' in languages
+     |      >>> print(languages['zh'])
+     |      Chinese
+     |  
+     |  lookup_dictionary(self, text, target_language, source_language=u'auto', examples=False, etymology=False, pronunciation=False, related_words=False, synonyms=False, antonyms=False, output_language=None)
+     |      Lookup detail meaning for single word/phrase
+     |      
+     |      .. note::
+     |      
+     |       - Do not input sequence of texts
+     |      
+     |      :param text: The source word/phrase(s) you want to lookup.
+     |      :type text: UTF-8 str
+     |      
+     |      :param target_language: The language to translate the source text into.
+     |       The value should be one of the language codes listed in :func:`get_languages`
+     |      :type target_language: str; unicode
+     |      
+     |      :param source_language: The language of the source text.
+     |                              The value should be one of the language codes listed in :func:`get_languages`.
+     |                              If a language is not specified,
+     |                              the system will attempt to identify the source language automatically.
+     |      :type source_language: str; unicode
+     |      
+     |      :param examples: include example sentences or not
+     |      :param pronunciation: include pronunciation in roman writing or not
+     |      :param related_words: include related words or not
+     |      :param output_language: the dictionary's own language, default to English.
+     |      
+     |      :returns: a complex list structure contains multiple translation meanings for this word/phrase and detail explaination.
+     |  
+     |  translate(self, text, target_language, source_language=u'auto')
+     |      Translate text from source language to target language
+     |      
+     |      .. note::
+     |      
+     |       - Input all source strings at once. Goslate will batch and fetch concurrently for maximize speed.
+     |       - `futures <https://pypi.python.org/pypi/futures>`_ is required for best performance.
+     |       - It returns generator on batch input in order to better fit pipeline architecture
+     |      
+     |      :param text: The source text(s) to be translated. Batch translation is supported via sequence input
+     |      :type text: UTF-8 str; unicode; string sequence (list, tuple, iterator, generator)
+     |      
+     |      :param target_language: The language to translate the source text into.
+     |       The value should be one of the language codes listed in :func:`get_languages`
+     |      :type target_language: str; unicode
+     |      
+     |      :param source_language: The language of the source text.
+     |                              The value should be one of the language codes listed in :func:`get_languages`.
+     |                              If a language is not specified,
+     |                              the system will attempt to identify the source language automatically.
+     |      :type source_language: str; unicode
+     |      
+     |      :returns: the translated text(s)
+     |      
+     |        - unicode: on single string input
+     |        - generator of unicode: on batch input of string sequence
+     |        - tuple: if WRITING_NATIVE_AND_ROMAN is specified, it will return tuple/generator for tuple (u"native", u"roman format")
+     |      
+     |      :raises:
+     |       - :class:`Error` ('invalid target language') if target language is not set
+     |       - :class:`Error` ('input too large') if input a single large word without any punctuation or space in between
+     |      
+     |      
+     |      :Example:
+     |      
+     |       >>> gs = Goslate()
+     |       >>> print(gs.translate('Hello World', 'de'))
+     |       Hallo Welt
+     |       >>> 
+     |       >>> for i in gs.translate(['good', u'morning'], 'de'):
+     |       ...     print(i)
+     |       ...
+     |       gut
+     |       Morgen
+     |      
+     |      To output romanlized translation
+     |      
+     |      :Example:
+     |      
+     |       >>> gs_roman = Goslate(WRITING_ROMAN)
+     |       >>> print(gs_roman.translate('Hello', 'zh'))
+     |       Nín hǎo
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  i = u' '
+
+DATA
+    WRITING_NATIVE = (u'trans',)
+    WRITING_NATIVE_AND_ROMAN = (u'trans', u'translit')
+    WRITING_ROMAN = (u'translit',)
+    __author__ = u'ZHUO Qiang'
+    __copyright__ = u'2013, http://zhuoqiang.me'
+    __date__ = u'2013-05-11'
+    __download__ = u'https://pypi.python.org/pypi/goslate'
+    __email__ = u'zhuo.qiang@gmail.com'
+    __home__ = u'https://bitbucket.org/zhuoqiang/goslate'
+    __license__ = u'MIT'
+    __version__ = u'1.5.0'
+    __version_info__ = (1, 5, 0)
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+    unicode_literals = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', ...
+
+VERSION
+    1.5.0
+
+DATE
+    2013-05-11
+
+AUTHOR
+    ZHUO Qiang
+
+

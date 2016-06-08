@@ -1,0 +1,175 @@
+Help on module tempfile:
+
+NAME
+    tempfile - Temporary files.
+
+FILE
+    /usr/lib/python2.7/tempfile.py
+
+MODULE DOCS
+    http://docs.python.org/library/tempfile
+
+DESCRIPTION
+    This module provides generic, low- and high-level interfaces for
+    creating temporary files and directories.  All of the interfaces
+    provided by this module can be used without fear of race conditions
+    except for 'mktemp'.  'mktemp' is subject to race conditions and
+    should not be used; it is provided for backward compatibility only.
+    
+    This module also provides some data items to the user:
+    
+      TMP_MAX  - maximum number of names that will be tried before
+                 giving up.
+      template - the default prefix for all temporary names.
+                 You may change this to control the default prefix.
+      tempdir  - If this is set to a string before the first use of
+                 any routine from this module, it will be considered as
+                 another candidate location to store temporary files.
+
+CLASSES
+    SpooledTemporaryFile
+    
+    class SpooledTemporaryFile
+     |  Temporary file wrapper, specialized to switch from
+     |  StringIO to a real file when it exceeds a certain size or
+     |  when a fileno is needed.
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      # Context management protocol
+     |  
+     |  __exit__(self, exc, value, tb)
+     |  
+     |  __init__(self, max_size=0, mode='w+b', bufsize=-1, suffix='', prefix='tmp', dir=None)
+     |  
+     |  __iter__(self)
+     |      # file protocol
+     |  
+     |  close(self)
+     |  
+     |  fileno(self)
+     |  
+     |  flush(self)
+     |  
+     |  isatty(self)
+     |  
+     |  next(self)
+     |  
+     |  read(self, *args)
+     |  
+     |  readline(self, *args)
+     |  
+     |  readlines(self, *args)
+     |  
+     |  rollover(self)
+     |  
+     |  seek(self, *args)
+     |  
+     |  tell(self)
+     |  
+     |  truncate(self)
+     |  
+     |  write(self, s)
+     |  
+     |  writelines(self, iterable)
+     |  
+     |  xreadlines(self, *args)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  closed
+     |  
+     |  mode
+     |  
+     |  name
+     |  
+     |  softspace
+
+FUNCTIONS
+    NamedTemporaryFile(mode='w+b', bufsize=-1, suffix='', prefix='tmp', dir=None, delete=True)
+        Create and return a temporary file.
+        Arguments:
+        'prefix', 'suffix', 'dir' -- as for mkstemp.
+        'mode' -- the mode argument to os.fdopen (default "w+b").
+        'bufsize' -- the buffer size argument to os.fdopen (default -1).
+        'delete' -- whether the file is deleted on close (default True).
+        The file is created as mkstemp() would do it.
+        
+        Returns an object with a file-like interface; the name of the file
+        is accessible as file.name.  The file will be automatically deleted
+        when it is closed unless the 'delete' argument is set to False.
+    
+    TemporaryFile(mode='w+b', bufsize=-1, suffix='', prefix='tmp', dir=None)
+        Create and return a temporary file.
+        Arguments:
+        'prefix', 'suffix', 'dir' -- as for mkstemp.
+        'mode' -- the mode argument to os.fdopen (default "w+b").
+        'bufsize' -- the buffer size argument to os.fdopen (default -1).
+        The file is created as mkstemp() would do it.
+        
+        Returns an object with a file-like interface.  The file has no
+        name, and will cease to exist when it is closed.
+    
+    gettempdir()
+        Accessor for tempfile.tempdir.
+    
+    gettempprefix()
+        Accessor for tempdir.template.
+    
+    mkdtemp(suffix='', prefix='tmp', dir=None)
+        User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+        
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+        
+        The directory is readable, writable, and searchable only by the
+        creating user.
+        
+        Caller is responsible for deleting the directory when done with it.
+    
+    mkstemp(suffix='', prefix='tmp', dir=None, text=False)
+        User-callable function to create and return a unique temporary
+        file.  The return value is a pair (fd, name) where fd is the
+        file descriptor returned by os.open, and name is the filename.
+        
+        If 'suffix' is specified, the file name will end with that suffix,
+        otherwise there will be no suffix.
+        
+        If 'prefix' is specified, the file name will begin with that prefix,
+        otherwise a default prefix is used.
+        
+        If 'dir' is specified, the file will be created in that directory,
+        otherwise a default directory is used.
+        
+        If 'text' is specified and true, the file is opened in text
+        mode.  Else (the default) the file is opened in binary mode.  On
+        some operating systems, this makes no difference.
+        
+        The file is readable and writable only by the creating user ID.
+        If the operating system uses permission bits to indicate whether a
+        file is executable, the file is executable by no one. The file
+        descriptor is not inherited by children of this process.
+        
+        Caller is responsible for deleting the file when done with it.
+    
+    mktemp(suffix='', prefix='tmp', dir=None)
+        User-callable function to return a unique temporary file name.  The
+        file is not created.
+        
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+        
+        This function is unsafe and should not be used.  The file name
+        refers to a file that did not exist at some point, but by the time
+        you get around to creating it, someone else may have beaten you to
+        the punch.
+
+DATA
+    TMP_MAX = 238328
+    __all__ = ['NamedTemporaryFile', 'TemporaryFile', 'SpooledTemporaryFil...
+    tempdir = None
+
+

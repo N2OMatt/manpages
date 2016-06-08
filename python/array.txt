@@ -1,0 +1,557 @@
+Help on built-in module array:
+
+NAME
+    array
+
+FILE
+    (built-in)
+
+DESCRIPTION
+    This module defines an object type which can efficiently represent
+    an array of basic values: characters, integers, floating point
+    numbers.  Arrays are sequence types and behave very much like lists,
+    except that the type of objects stored in them is constrained.  The
+    type is specified at object creation time by using a type code, which
+    is a single character.  The following type codes are defined:
+    
+        Type code   C Type             Minimum size in bytes 
+        'c'         character          1 
+        'b'         signed integer     1 
+        'B'         unsigned integer   1 
+        'u'         Unicode character  2 
+        'h'         signed integer     2 
+        'H'         unsigned integer   2 
+        'i'         signed integer     2 
+        'I'         unsigned integer   2 
+        'l'         signed integer     4 
+        'L'         unsigned integer   4 
+        'f'         floating point     4 
+        'd'         floating point     8 
+    
+    The constructor is:
+    
+    array(typecode [, initializer]) -- create a new array
+
+CLASSES
+    __builtin__.object
+        array
+    
+    ArrayType = class array(__builtin__.object)
+     |  array(typecode [, initializer]) -> array
+     |  
+     |  Return a new array whose items are restricted by typecode, and
+     |  initialized from the optional initializer value, which must be a list,
+     |  string or iterable over elements of the appropriate type.
+     |  
+     |  Arrays represent basic values and behave very much like lists, except
+     |  the type of objects stored in them is constrained.
+     |  
+     |  Methods:
+     |  
+     |  append() -- append a new item to the end of the array
+     |  buffer_info() -- return information giving the current memory info
+     |  byteswap() -- byteswap all the items of the array
+     |  count() -- return number of occurrences of an object
+     |  extend() -- extend array by appending multiple elements from an iterable
+     |  fromfile() -- read items from a file object
+     |  fromlist() -- append items from the list
+     |  fromstring() -- append items from the string
+     |  index() -- return index of first occurrence of an object
+     |  insert() -- insert a new item into the array at a provided position
+     |  pop() -- remove and return item (default last)
+     |  read() -- DEPRECATED, use fromfile()
+     |  remove() -- remove first occurrence of an object
+     |  reverse() -- reverse the order of the items in the array
+     |  tofile() -- write all items to a file object
+     |  tolist() -- return the array converted to an ordinary list
+     |  tostring() -- return the array converted to a string
+     |  write() -- DEPRECATED, use tofile()
+     |  
+     |  Attributes:
+     |  
+     |  typecode -- the typecode character used to create the array
+     |  itemsize -- the length in bytes of one array item
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(...)
+     |      x.__add__(y) <==> x+y
+     |  
+     |  __contains__(...)
+     |      x.__contains__(y) <==> y in x
+     |  
+     |  __copy__(...)
+     |      copy(array)
+     |      
+     |      Return a copy of the array.
+     |  
+     |  __deepcopy__(...)
+     |      copy(array)
+     |      
+     |      Return a copy of the array.
+     |  
+     |  __delitem__(...)
+     |      x.__delitem__(y) <==> del x[y]
+     |  
+     |  __delslice__(...)
+     |      x.__delslice__(i, j) <==> del x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __eq__(...)
+     |      x.__eq__(y) <==> x==y
+     |  
+     |  __ge__(...)
+     |      x.__ge__(y) <==> x>=y
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __gt__(...)
+     |      x.__gt__(y) <==> x>y
+     |  
+     |  __iadd__(...)
+     |      x.__iadd__(y) <==> x+=y
+     |  
+     |  __imul__(...)
+     |      x.__imul__(y) <==> x*=y
+     |  
+     |  __iter__(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  __le__(...)
+     |      x.__le__(y) <==> x<=y
+     |  
+     |  __len__(...)
+     |      x.__len__() <==> len(x)
+     |  
+     |  __lt__(...)
+     |      x.__lt__(y) <==> x<y
+     |  
+     |  __mul__(...)
+     |      x.__mul__(n) <==> x*n
+     |  
+     |  __ne__(...)
+     |      x.__ne__(y) <==> x!=y
+     |  
+     |  __reduce__(...)
+     |      Return state information for pickling.
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __rmul__(...)
+     |      x.__rmul__(n) <==> n*x
+     |  
+     |  __setitem__(...)
+     |      x.__setitem__(i, y) <==> x[i]=y
+     |  
+     |  __setslice__(...)
+     |      x.__setslice__(i, j, y) <==> x[i:j]=y
+     |      
+     |      Use  of negative indices is not supported.
+     |  
+     |  __sizeof__(...)
+     |      __sizeof__() -> int
+     |      
+     |      Size of the array in memory, in bytes.
+     |  
+     |  append(...)
+     |      append(x)
+     |      
+     |      Append new value x to the end of the array.
+     |  
+     |  buffer_info(...)
+     |      buffer_info() -> (address, length)
+     |      
+     |      Return a tuple (address, length) giving the current memory address and
+     |      the length in items of the buffer used to hold array's contents
+     |      The length should be multiplied by the itemsize attribute to calculate
+     |      the buffer length in bytes.
+     |  
+     |  byteswap(...)
+     |      byteswap()
+     |      
+     |      Byteswap all items of the array.  If the items in the array are not 1, 2,
+     |      4, or 8 bytes in size, RuntimeError is raised.
+     |  
+     |  count(...)
+     |      count(x)
+     |      
+     |      Return number of occurrences of x in the array.
+     |  
+     |  extend(...)
+     |      extend(array or iterable)
+     |      
+     |      Append items to the end of the array.
+     |  
+     |  fromfile(...)
+     |      fromfile(f, n)
+     |      
+     |      Read n objects from the file object f and append them to the end of the
+     |      array.  Also called as read.
+     |  
+     |  fromlist(...)
+     |      fromlist(list)
+     |      
+     |      Append items to array from list.
+     |  
+     |  fromstring(...)
+     |      fromstring(string)
+     |      
+     |      Appends items from the string, interpreting it as an array of machine
+     |      values,as if it had been read from a file using the fromfile() method).
+     |  
+     |  fromunicode(...)
+     |      fromunicode(ustr)
+     |      
+     |      Extends this array with data from the unicode string ustr.
+     |      The array must be a type 'u' array; otherwise a ValueError
+     |      is raised.  Use array.fromstring(ustr.decode(...)) to
+     |      append Unicode data to an array of some other type.
+     |  
+     |  index(...)
+     |      index(x)
+     |      
+     |      Return index of first occurrence of x in the array.
+     |  
+     |  insert(...)
+     |      insert(i,x)
+     |      
+     |      Insert a new item x into the array before position i.
+     |  
+     |  pop(...)
+     |      pop([i])
+     |      
+     |      Return the i-th element and delete it from the array. i defaults to -1.
+     |  
+     |  read(...)
+     |      fromfile(f, n)
+     |      
+     |      Read n objects from the file object f and append them to the end of the
+     |      array.  Also called as read.
+     |  
+     |  remove(...)
+     |      remove(x)
+     |      
+     |      Remove the first occurrence of x in the array.
+     |  
+     |  reverse(...)
+     |      reverse()
+     |      
+     |      Reverse the order of the items in the array.
+     |  
+     |  tofile(...)
+     |      tofile(f)
+     |      
+     |      Write all items (as machine values) to the file object f.  Also called as
+     |      write.
+     |  
+     |  tolist(...)
+     |      tolist() -> list
+     |      
+     |      Convert array to an ordinary list with the same items.
+     |  
+     |  tostring(...)
+     |      tostring() -> string
+     |      
+     |      Convert the array to an array of machine values and return the string
+     |      representation.
+     |  
+     |  tounicode(...)
+     |      tounicode() -> unicode
+     |      
+     |      Convert the array to a unicode string.  The array must be
+     |      a type 'u' array; otherwise a ValueError is raised.  Use
+     |      array.tostring().decode() to obtain a unicode string from
+     |      an array of some other type.
+     |  
+     |  write(...)
+     |      tofile(f)
+     |      
+     |      Write all items (as machine values) to the file object f.  Also called as
+     |      write.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  itemsize
+     |      the size, in bytes, of one array item
+     |  
+     |  typecode
+     |      the typecode character used to create the array
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class array(__builtin__.object)
+     |  array(typecode [, initializer]) -> array
+     |  
+     |  Return a new array whose items are restricted by typecode, and
+     |  initialized from the optional initializer value, which must be a list,
+     |  string or iterable over elements of the appropriate type.
+     |  
+     |  Arrays represent basic values and behave very much like lists, except
+     |  the type of objects stored in them is constrained.
+     |  
+     |  Methods:
+     |  
+     |  append() -- append a new item to the end of the array
+     |  buffer_info() -- return information giving the current memory info
+     |  byteswap() -- byteswap all the items of the array
+     |  count() -- return number of occurrences of an object
+     |  extend() -- extend array by appending multiple elements from an iterable
+     |  fromfile() -- read items from a file object
+     |  fromlist() -- append items from the list
+     |  fromstring() -- append items from the string
+     |  index() -- return index of first occurrence of an object
+     |  insert() -- insert a new item into the array at a provided position
+     |  pop() -- remove and return item (default last)
+     |  read() -- DEPRECATED, use fromfile()
+     |  remove() -- remove first occurrence of an object
+     |  reverse() -- reverse the order of the items in the array
+     |  tofile() -- write all items to a file object
+     |  tolist() -- return the array converted to an ordinary list
+     |  tostring() -- return the array converted to a string
+     |  write() -- DEPRECATED, use tofile()
+     |  
+     |  Attributes:
+     |  
+     |  typecode -- the typecode character used to create the array
+     |  itemsize -- the length in bytes of one array item
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(...)
+     |      x.__add__(y) <==> x+y
+     |  
+     |  __contains__(...)
+     |      x.__contains__(y) <==> y in x
+     |  
+     |  __copy__(...)
+     |      copy(array)
+     |      
+     |      Return a copy of the array.
+     |  
+     |  __deepcopy__(...)
+     |      copy(array)
+     |      
+     |      Return a copy of the array.
+     |  
+     |  __delitem__(...)
+     |      x.__delitem__(y) <==> del x[y]
+     |  
+     |  __delslice__(...)
+     |      x.__delslice__(i, j) <==> del x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __eq__(...)
+     |      x.__eq__(y) <==> x==y
+     |  
+     |  __ge__(...)
+     |      x.__ge__(y) <==> x>=y
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __gt__(...)
+     |      x.__gt__(y) <==> x>y
+     |  
+     |  __iadd__(...)
+     |      x.__iadd__(y) <==> x+=y
+     |  
+     |  __imul__(...)
+     |      x.__imul__(y) <==> x*=y
+     |  
+     |  __iter__(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  __le__(...)
+     |      x.__le__(y) <==> x<=y
+     |  
+     |  __len__(...)
+     |      x.__len__() <==> len(x)
+     |  
+     |  __lt__(...)
+     |      x.__lt__(y) <==> x<y
+     |  
+     |  __mul__(...)
+     |      x.__mul__(n) <==> x*n
+     |  
+     |  __ne__(...)
+     |      x.__ne__(y) <==> x!=y
+     |  
+     |  __reduce__(...)
+     |      Return state information for pickling.
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __rmul__(...)
+     |      x.__rmul__(n) <==> n*x
+     |  
+     |  __setitem__(...)
+     |      x.__setitem__(i, y) <==> x[i]=y
+     |  
+     |  __setslice__(...)
+     |      x.__setslice__(i, j, y) <==> x[i:j]=y
+     |      
+     |      Use  of negative indices is not supported.
+     |  
+     |  __sizeof__(...)
+     |      __sizeof__() -> int
+     |      
+     |      Size of the array in memory, in bytes.
+     |  
+     |  append(...)
+     |      append(x)
+     |      
+     |      Append new value x to the end of the array.
+     |  
+     |  buffer_info(...)
+     |      buffer_info() -> (address, length)
+     |      
+     |      Return a tuple (address, length) giving the current memory address and
+     |      the length in items of the buffer used to hold array's contents
+     |      The length should be multiplied by the itemsize attribute to calculate
+     |      the buffer length in bytes.
+     |  
+     |  byteswap(...)
+     |      byteswap()
+     |      
+     |      Byteswap all items of the array.  If the items in the array are not 1, 2,
+     |      4, or 8 bytes in size, RuntimeError is raised.
+     |  
+     |  count(...)
+     |      count(x)
+     |      
+     |      Return number of occurrences of x in the array.
+     |  
+     |  extend(...)
+     |      extend(array or iterable)
+     |      
+     |      Append items to the end of the array.
+     |  
+     |  fromfile(...)
+     |      fromfile(f, n)
+     |      
+     |      Read n objects from the file object f and append them to the end of the
+     |      array.  Also called as read.
+     |  
+     |  fromlist(...)
+     |      fromlist(list)
+     |      
+     |      Append items to array from list.
+     |  
+     |  fromstring(...)
+     |      fromstring(string)
+     |      
+     |      Appends items from the string, interpreting it as an array of machine
+     |      values,as if it had been read from a file using the fromfile() method).
+     |  
+     |  fromunicode(...)
+     |      fromunicode(ustr)
+     |      
+     |      Extends this array with data from the unicode string ustr.
+     |      The array must be a type 'u' array; otherwise a ValueError
+     |      is raised.  Use array.fromstring(ustr.decode(...)) to
+     |      append Unicode data to an array of some other type.
+     |  
+     |  index(...)
+     |      index(x)
+     |      
+     |      Return index of first occurrence of x in the array.
+     |  
+     |  insert(...)
+     |      insert(i,x)
+     |      
+     |      Insert a new item x into the array before position i.
+     |  
+     |  pop(...)
+     |      pop([i])
+     |      
+     |      Return the i-th element and delete it from the array. i defaults to -1.
+     |  
+     |  read(...)
+     |      fromfile(f, n)
+     |      
+     |      Read n objects from the file object f and append them to the end of the
+     |      array.  Also called as read.
+     |  
+     |  remove(...)
+     |      remove(x)
+     |      
+     |      Remove the first occurrence of x in the array.
+     |  
+     |  reverse(...)
+     |      reverse()
+     |      
+     |      Reverse the order of the items in the array.
+     |  
+     |  tofile(...)
+     |      tofile(f)
+     |      
+     |      Write all items (as machine values) to the file object f.  Also called as
+     |      write.
+     |  
+     |  tolist(...)
+     |      tolist() -> list
+     |      
+     |      Convert array to an ordinary list with the same items.
+     |  
+     |  tostring(...)
+     |      tostring() -> string
+     |      
+     |      Convert the array to an array of machine values and return the string
+     |      representation.
+     |  
+     |  tounicode(...)
+     |      tounicode() -> unicode
+     |      
+     |      Convert the array to a unicode string.  The array must be
+     |      a type 'u' array; otherwise a ValueError is raised.  Use
+     |      array.tostring().decode() to obtain a unicode string from
+     |      an array of some other type.
+     |  
+     |  write(...)
+     |      tofile(f)
+     |      
+     |      Write all items (as machine values) to the file object f.  Also called as
+     |      write.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  itemsize
+     |      the size, in bytes, of one array item
+     |  
+     |  typecode
+     |      the typecode character used to create the array
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+

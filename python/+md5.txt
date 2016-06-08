@@ -1,0 +1,29 @@
+Help on module md5:
+
+NAME
+    md5
+
+FILE
+    /usr/lib/python2.7/md5.py
+
+MODULE DOCS
+    http://docs.python.org/library/md5
+
+DESCRIPTION
+    # $Id$
+    #
+    #  Copyright (C) 2005   Gregory P. Smith (greg@krypto.org)
+    #  Licensed to PSF under a Contributor Agreement.
+
+FUNCTIONS
+    md5 = openssl_md5(...)
+        Returns a md5 hash object; optionally initialized with a string
+    
+    new = openssl_md5(...)
+        Returns a md5 hash object; optionally initialized with a string
+
+DATA
+    blocksize = 1
+    digest_size = 16
+
+

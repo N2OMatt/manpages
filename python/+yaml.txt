@@ -1,0 +1,261 @@
+Help on package yaml:
+
+NAME
+    yaml
+
+FILE
+    /usr/local/lib/python2.7/dist-packages/yaml/__init__.py
+
+PACKAGE CONTENTS
+    composer
+    constructor
+    cyaml
+    dumper
+    emitter
+    error
+    events
+    loader
+    nodes
+    parser
+    reader
+    representer
+    resolver
+    scanner
+    serializer
+    tokens
+
+CLASSES
+    __builtin__.object
+        YAMLObject
+    __builtin__.type(__builtin__.object)
+        YAMLObjectMetaclass
+    
+    class YAMLObject(__builtin__.object)
+     |  An object that can dump itself to a YAML stream
+     |  and load itself from a YAML stream.
+     |  
+     |  Class methods defined here:
+     |  
+     |  from_yaml(cls, loader, node) from YAMLObjectMetaclass
+     |      Convert a representation node to a Python object.
+     |  
+     |  to_yaml(cls, dumper, data) from YAMLObjectMetaclass
+     |      Convert a Python object to a representation node.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __metaclass__ = <class 'yaml.YAMLObjectMetaclass'>
+     |      The metaclass for YAMLObject.
+     |  
+     |  yaml_dumper = <class 'yaml.dumper.Dumper'>
+     |  
+     |  
+     |  yaml_flow_style = None
+     |  
+     |  yaml_loader = <class 'yaml.loader.Loader'>
+     |  
+     |  
+     |  yaml_tag = None
+    
+    class YAMLObjectMetaclass(__builtin__.type)
+     |  The metaclass for YAMLObject.
+     |  
+     |  Method resolution order:
+     |      YAMLObjectMetaclass
+     |      __builtin__.type
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(cls, name, bases, kwds)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from __builtin__.type:
+     |  
+     |  __call__(...)
+     |      x.__call__(...) <==> x(...)
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __eq__(...)
+     |      x.__eq__(y) <==> x==y
+     |  
+     |  __ge__(...)
+     |      x.__ge__(y) <==> x>=y
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __gt__(...)
+     |      x.__gt__(y) <==> x>y
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __instancecheck__(...)
+     |      __instancecheck__() -> bool
+     |      check if an object is an instance
+     |  
+     |  __le__(...)
+     |      x.__le__(y) <==> x<=y
+     |  
+     |  __lt__(...)
+     |      x.__lt__(y) <==> x<y
+     |  
+     |  __ne__(...)
+     |      x.__ne__(y) <==> x!=y
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __subclasscheck__(...)
+     |      __subclasscheck__() -> bool
+     |      check if a class is a subclass
+     |  
+     |  __subclasses__(...)
+     |      __subclasses__() -> list of immediate subclasses
+     |  
+     |  mro(...)
+     |      mro() -> list
+     |      return a type's method resolution order
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from __builtin__.type:
+     |  
+     |  __abstractmethods__
+     |  
+     |  __base__
+     |  
+     |  __bases__
+     |  
+     |  __basicsize__
+     |  
+     |  __dict__
+     |  
+     |  __dictoffset__
+     |  
+     |  __flags__
+     |  
+     |  __itemsize__
+     |  
+     |  __mro__
+     |  
+     |  __weakrefoffset__
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from __builtin__.type:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+FUNCTIONS
+    add_constructor(tag, constructor, Loader=<class 'yaml.loader.Loader'>)
+        Add a constructor for the given tag.
+        Constructor is a function that accepts a Loader instance
+        and a node object and produces the corresponding Python object.
+    
+    add_implicit_resolver(tag, regexp, first=None, Loader=<class 'yaml.loader.Loader'>, Dumper=<class 'yaml.dumper.Dumper'>)
+        Add an implicit scalar detector.
+        If an implicit scalar value matches the given regexp,
+        the corresponding tag is assigned to the scalar.
+        first is a sequence of possible initial characters or None.
+    
+    add_multi_constructor(tag_prefix, multi_constructor, Loader=<class 'yaml.loader.Loader'>)
+        Add a multi-constructor for the given tag prefix.
+        Multi-constructor is called for a node if its tag starts with tag_prefix.
+        Multi-constructor accepts a Loader instance, a tag suffix,
+        and a node object and produces the corresponding Python object.
+    
+    add_multi_representer(data_type, multi_representer, Dumper=<class 'yaml.dumper.Dumper'>)
+        Add a representer for the given type.
+        Multi-representer is a function accepting a Dumper instance
+        and an instance of the given data type or subtype
+        and producing the corresponding representation node.
+    
+    add_path_resolver(tag, path, kind=None, Loader=<class 'yaml.loader.Loader'>, Dumper=<class 'yaml.dumper.Dumper'>)
+        Add a path based resolver for the given tag.
+        A path is a list of keys that forms a path
+        to a node in the representation tree.
+        Keys can be string values, integers, or None.
+    
+    add_representer(data_type, representer, Dumper=<class 'yaml.dumper.Dumper'>)
+        Add a representer for the given type.
+        Representer is a function accepting a Dumper instance
+        and an instance of the given data type
+        and producing the corresponding representation node.
+    
+    compose(stream, Loader=<class 'yaml.loader.Loader'>)
+        Parse the first YAML document in a stream
+        and produce the corresponding representation tree.
+    
+    compose_all(stream, Loader=<class 'yaml.loader.Loader'>)
+        Parse all YAML documents in a stream
+        and produce corresponding representation trees.
+    
+    dump(data, stream=None, Dumper=<class 'yaml.dumper.Dumper'>, **kwds)
+        Serialize a Python object into a YAML stream.
+        If stream is None, return the produced string instead.
+    
+    dump_all(documents, stream=None, Dumper=<class 'yaml.dumper.Dumper'>, default_style=None, default_flow_style=None, canonical=None, indent=None, width=None, allow_unicode=None, line_break=None, encoding='utf-8', explicit_start=None, explicit_end=None, version=None, tags=None)
+        Serialize a sequence of Python objects into a YAML stream.
+        If stream is None, return the produced string instead.
+    
+    emit(events, stream=None, Dumper=<class 'yaml.dumper.Dumper'>, canonical=None, indent=None, width=None, allow_unicode=None, line_break=None)
+        Emit YAML parsing events into a stream.
+        If stream is None, return the produced string instead.
+    
+    load(stream, Loader=<class 'yaml.loader.Loader'>)
+        Parse the first YAML document in a stream
+        and produce the corresponding Python object.
+    
+    load_all(stream, Loader=<class 'yaml.loader.Loader'>)
+        Parse all YAML documents in a stream
+        and produce corresponding Python objects.
+    
+    parse(stream, Loader=<class 'yaml.loader.Loader'>)
+        Parse a YAML stream and produce parsing events.
+    
+    safe_dump(data, stream=None, **kwds)
+        Serialize a Python object into a YAML stream.
+        Produce only basic YAML tags.
+        If stream is None, return the produced string instead.
+    
+    safe_dump_all(documents, stream=None, **kwds)
+        Serialize a sequence of Python objects into a YAML stream.
+        Produce only basic YAML tags.
+        If stream is None, return the produced string instead.
+    
+    safe_load(stream)
+        Parse the first YAML document in a stream
+        and produce the corresponding Python object.
+        Resolve only basic YAML tags.
+    
+    safe_load_all(stream)
+        Parse all YAML documents in a stream
+        and produce corresponding Python objects.
+        Resolve only basic YAML tags.
+    
+    scan(stream, Loader=<class 'yaml.loader.Loader'>)
+        Scan a YAML stream and produce scanning tokens.
+    
+    serialize(node, stream=None, Dumper=<class 'yaml.dumper.Dumper'>, **kwds)
+        Serialize a representation tree into a YAML stream.
+        If stream is None, return the produced string instead.
+    
+    serialize_all(nodes, stream=None, Dumper=<class 'yaml.dumper.Dumper'>, canonical=None, indent=None, width=None, allow_unicode=None, line_break=None, encoding='utf-8', explicit_start=None, explicit_end=None, version=None, tags=None)
+        Serialize a sequence of representation trees into a YAML stream.
+        If stream is None, return the produced string instead.
+
+DATA
+    __version__ = '3.11'
+    __with_libyaml__ = False
+
+VERSION
+    3.11
+
+

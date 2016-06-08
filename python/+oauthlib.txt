@@ -1,0 +1,35 @@
+Help on package oauthlib:
+
+NAME
+    oauthlib
+
+FILE
+    /usr/lib/python2.7/dist-packages/oauthlib/__init__.py
+
+DESCRIPTION
+    oauthlib
+    ~~~~~~~~
+    
+    A generic, spec-compliant, thorough implementation of the OAuth
+    request-signing logic.
+    
+    :copyright: (c) 2011 by Idan Gazit.
+    :license: BSD, see LICENSE for details.
+
+PACKAGE CONTENTS
+    common
+    oauth1 (package)
+    oauth2 (package)
+    uri_validate
+
+DATA
+    __author__ = 'Idan Gazit <idan@gazit.me>'
+    __version__ = '0.6.1'
+
+VERSION
+    0.6.1
+
+AUTHOR
+    Idan Gazit <idan@gazit.me>
+
+

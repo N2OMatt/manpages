@@ -1,0 +1,2099 @@
+Help on package ctypes:
+
+NAME
+    ctypes - create and manipulate C data types in Python
+
+FILE
+    /usr/lib/python2.7/ctypes/__init__.py
+
+MODULE DOCS
+    http://docs.python.org/library/ctypes
+
+PACKAGE CONTENTS
+    _endian
+    util
+    wintypes
+
+CLASSES
+    __builtin__.object
+        CDLL
+            PyDLL
+        LibraryLoader
+    _ctypes._SimpleCData(_ctypes._CData)
+        c_bool
+        c_byte
+        c_char
+        c_char_p
+        c_double
+        c_float
+        c_int
+        c_long
+        c_longdouble
+        c_short
+        c_ubyte
+        c_uint
+        c_ulong
+        c_ushort
+        c_void_p
+        c_wchar
+        c_wchar_p
+        py_object
+    exceptions.Exception(exceptions.BaseException)
+        ArgumentError
+    
+    class ArgumentError(exceptions.Exception)
+     |  Method resolution order:
+     |      ArgumentError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.Exception:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class CDLL(__builtin__.object)
+     |  An instance of this class represents a loaded dll/shared
+     |  library, exporting functions using the standard C calling
+     |  convention (named 'cdecl' on Windows).
+     |  
+     |  The exported functions can be accessed as attributes, or by
+     |  indexing with the function name.  Examples:
+     |  
+     |  <obj>.qsort -> callable object
+     |  <obj>['qsort'] -> callable object
+     |  
+     |  Calling the functions releases the Python GIL during the call and
+     |  reacquires it afterwards.
+     |  
+     |  Methods defined here:
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, name_or_ordinal)
+     |  
+     |  __init__(self, name, mode=0, handle=None, use_errno=False, use_last_error=False)
+     |  
+     |  __repr__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class LibraryLoader(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  LoadLibrary(self, name)
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, name)
+     |  
+     |  __init__(self, dlltype)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PyDLL(CDLL)
+     |  This class represents the Python library itself.  It allows to
+     |  access Python API functions.  The GIL is not released, and
+     |  Python exceptions are handled correctly.
+     |  
+     |  Method resolution order:
+     |      PyDLL
+     |      CDLL
+     |      __builtin__.object
+     |  
+     |  Methods inherited from CDLL:
+     |  
+     |  __getattr__(self, name)
+     |  
+     |  __getitem__(self, name_or_ordinal)
+     |  
+     |  __init__(self, name, mode=0, handle=None, use_errno=False, use_last_error=False)
+     |  
+     |  __repr__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from CDLL:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class c_bool(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_bool
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_byte(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_byte
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_byte'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_byte'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_char(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_char
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_char'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_char'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_char_p(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_char_p
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __repr__(self)
+     |  
+     |  from_param(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_double(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_double
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_double_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_double'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_float(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_float
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_float_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_float'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_int(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_int
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_int_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_int'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_int16 = class c_short(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_short
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_short_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_short'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_int32 = class c_int(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_int
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_int_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_int'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_int64 = class c_long(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_long
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_long_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_long'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_int8 = class c_byte(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_byte
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_byte'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_byte'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_long(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_long
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_long_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_long'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_longdouble(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_longdouble
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_longlong = class c_long(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_long
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_long_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_long'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_short(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_short
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_short_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_short'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_size_t = class c_ulong(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ulong
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ulong_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ulong'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_ssize_t = class c_long(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_long
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_long_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_long'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_ubyte(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ubyte
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ubyte'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ubyte'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_uint(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_uint
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_uint_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_uint'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_uint16 = class c_ushort(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ushort
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ushort_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ushort'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_uint32 = class c_uint(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_uint
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_uint_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_uint'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_uint64 = class c_ulong(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ulong
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ulong_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ulong'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_uint8 = class c_ubyte(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ubyte
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ubyte'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ubyte'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_ulong(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ulong
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ulong_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ulong'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_ulonglong = class c_ulong(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ulong
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ulong_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ulong'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_ushort(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_ushort
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __ctype_be__ = <class 'ctypes.c_ushort_be'>
+     |  
+     |  
+     |  __ctype_le__ = <class 'ctypes.c_ushort'>
+     |  
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_void_p(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_void_p
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  from_param(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    c_voidp = class c_void_p(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_void_p
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  from_param(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_wchar(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_wchar
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class c_wchar_p(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      c_wchar_p
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  from_param(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+    
+    class py_object(_ctypes._SimpleCData)
+     |  Method resolution order:
+     |      py_object
+     |      _ctypes._SimpleCData
+     |      _ctypes._CData
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __repr__(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._SimpleCData:
+     |  
+     |  __ctypes_from_outparam__(...)
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __nonzero__(...)
+     |      x.__nonzero__() <==> x != 0
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _ctypes._SimpleCData:
+     |  
+     |  value
+     |      current value
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _ctypes._SimpleCData:
+     |  
+     |  __new__ = <built-in method __new__ of _ctypes.PyCSimpleType object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _ctypes._CData:
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __reduce__(...)
+     |  
+     |  __setstate__(...)
+
+FUNCTIONS
+    ARRAY(typ, len)
+        # XXX Deprecated
+    
+    CFUNCTYPE(restype, *argtypes, **kw)
+        CFUNCTYPE(restype, *argtypes,
+                     use_errno=False, use_last_error=False) -> function prototype.
+        
+        restype: the result type
+        argtypes: a sequence specifying the argument types
+        
+        The function prototype can be called in different ways to create a
+        callable object:
+        
+        prototype(integer address) -> foreign function
+        prototype(callable) -> create and return a C callable function from callable
+        prototype(integer index, method name[, paramflags]) -> foreign function calling a COM method
+        prototype((ordinal number, dll object)[, paramflags]) -> foreign function exported by ordinal
+        prototype((function name, dll object)[, paramflags]) -> foreign function exported by name
+    
+    POINTER(...)
+    
+    PYFUNCTYPE(restype, *argtypes)
+    
+    SetPointerType(pointer, cls)
+        # XXX Deprecated
+    
+    addressof(...)
+        addressof(C instance) -> integer
+        Return the address of the C instance internal buffer
+    
+    alignment(...)
+        alignment(C type) -> integer
+        alignment(C instance) -> integer
+        Return the alignment requirements of a C instance
+    
+    byref(...)
+        byref(C instance[, offset=0]) -> byref-object
+        Return a pointer lookalike to a C instance, only usable
+        as function argument
+    
+    c_buffer(init, size=None)
+    
+    cast(obj, typ)
+    
+    create_string_buffer(init, size=None)
+        create_string_buffer(aString) -> character array
+        create_string_buffer(anInteger) -> character array
+        create_string_buffer(aString, anInteger) -> character array
+    
+    create_unicode_buffer(init, size=None)
+        create_unicode_buffer(aString) -> character array
+        create_unicode_buffer(anInteger) -> character array
+        create_unicode_buffer(aString, anInteger) -> character array
+    
+    get_errno(...)
+    
+    pointer(...)
+    
+    resize(...)
+        Resize the memory buffer of a ctypes instance
+    
+    set_conversion_mode(...)
+        set_conversion_mode(encoding, errors) -> (previous-encoding, previous-errors)
+        
+        Set the encoding and error handling ctypes uses when converting
+        between unicode and strings.  Returns the previous values.
+    
+    set_errno(...)
+    
+    sizeof(...)
+        sizeof(C type) -> integer
+        sizeof(C instance) -> integer
+        Return the size in bytes of a C instance
+    
+    string_at(ptr, size=-1)
+        string_at(addr[, size]) -> string
+        
+        Return the string at addr.
+    
+    wstring_at(ptr, size=-1)
+        wstring_at(addr[, size]) -> string
+        
+        Return the string at addr.
+
+DATA
+    DEFAULT_MODE = 0
+    RTLD_GLOBAL = 256
+    RTLD_LOCAL = 0
+    __version__ = '1.1.0'
+    cdll = <ctypes.LibraryLoader object>
+    memmove = <CFunctionType object>
+    memset = <CFunctionType object>
+    pydll = <ctypes.LibraryLoader object>
+    pythonapi = <PyDLL 'None', handle 7f7c85335188 at 7f7c836f1150>
+
+VERSION
+    1.1.0
+
+

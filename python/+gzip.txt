@@ -1,0 +1,203 @@
+Help on module gzip:
+
+NAME
+    gzip - Functions that read and write gzipped files.
+
+FILE
+    /usr/lib/python2.7/gzip.py
+
+MODULE DOCS
+    http://docs.python.org/library/gzip
+
+DESCRIPTION
+    The user of the file doesn't have to worry about the compression,
+    but random access is not allowed.
+
+CLASSES
+    io.BufferedIOBase(_io._BufferedIOBase, io.IOBase)
+        GzipFile
+    
+    class GzipFile(io.BufferedIOBase)
+     |  The GzipFile class simulates most of the methods of a file object with
+     |  the exception of the readinto() and truncate() methods.
+     |  
+     |  Method resolution order:
+     |      GzipFile
+     |      io.BufferedIOBase
+     |      _io._BufferedIOBase
+     |      io.IOBase
+     |      _io._IOBase
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, filename=None, mode=None, compresslevel=9, fileobj=None, mtime=None)
+     |      Constructor for the GzipFile class.
+     |      
+     |      At least one of fileobj and filename must be given a
+     |      non-trivial value.
+     |      
+     |      The new class instance is based on fileobj, which can be a regular
+     |      file, a StringIO object, or any other object which simulates a file.
+     |      It defaults to None, in which case filename is opened to provide
+     |      a file object.
+     |      
+     |      When fileobj is not None, the filename argument is only used to be
+     |      included in the gzip file header, which may includes the original
+     |      filename of the uncompressed file.  It defaults to the filename of
+     |      fileobj, if discernible; otherwise, it defaults to the empty string,
+     |      and in this case the original filename is not included in the header.
+     |      
+     |      The mode argument can be any of 'r', 'rb', 'a', 'ab', 'w', or 'wb',
+     |      depending on whether the file will be read or written.  The default
+     |      is the mode of fileobj if discernible; otherwise, the default is 'rb'.
+     |      Be aware that only the 'rb', 'ab', and 'wb' values should be used
+     |      for cross-platform portability.
+     |      
+     |      The compresslevel argument is an integer from 0 to 9 controlling the
+     |      level of compression; 1 is fastest and produces the least compression,
+     |      and 9 is slowest and produces the most compression. 0 is no compression
+     |      at all. The default is 9.
+     |      
+     |      The mtime argument is an optional numeric timestamp to be written
+     |      to the stream when compressing.  All gzip compressed streams
+     |      are required to contain a timestamp.  If omitted or None, the
+     |      current time is used.  This module ignores the timestamp when
+     |      decompressing; however, some programs, such as gunzip, make use
+     |      of it.  The format of the timestamp is the same as that of the
+     |      return value of time.time() and of the st_mtime member of the
+     |      object returned by os.stat().
+     |  
+     |  __repr__(self)
+     |  
+     |  close(self)
+     |  
+     |  fileno(self)
+     |      Invoke the underlying file object's fileno() method.
+     |      
+     |      This will raise AttributeError if the underlying file object
+     |      doesn't support fileno().
+     |  
+     |  flush(self, zlib_mode=2)
+     |  
+     |  read(self, size=-1)
+     |  
+     |  readable(self)
+     |  
+     |  readline(self, size=-1)
+     |  
+     |  rewind(self)
+     |      Return the uncompressed stream file position indicator to the
+     |      beginning of the file
+     |  
+     |  seek(self, offset, whence=0)
+     |  
+     |  seekable(self)
+     |  
+     |  writable(self)
+     |  
+     |  write(self, data)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  closed
+     |  
+     |  filename
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset([])
+     |  
+     |  max_read_chunk = 10485760
+     |  
+     |  myfileobj = None
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _io._BufferedIOBase:
+     |  
+     |  detach(...)
+     |      Disconnect this buffer from its underlying raw stream and return it.
+     |      
+     |      After the raw stream has been detached, the buffer is in an unusable
+     |      state.
+     |  
+     |  read1(...)
+     |      Read and return up to n bytes, with at most one read() call
+     |      to the underlying raw stream. A short result does not imply
+     |      that EOF is imminent.
+     |      
+     |      Returns an empty bytes object on EOF.
+     |  
+     |  readinto(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from io.IOBase:
+     |  
+     |  __metaclass__ = <class 'abc.ABCMeta'>
+     |      Metaclass for defining Abstract Base Classes (ABCs).
+     |      
+     |      Use this metaclass to create an ABC.  An ABC can be subclassed
+     |      directly, and then acts as a mix-in class.  You can also register
+     |      unrelated concrete classes (even built-in classes) and unrelated
+     |      ABCs as 'virtual subclasses' -- these and their descendants will
+     |      be considered subclasses of the registering ABC by the built-in
+     |      issubclass() function, but the registering ABC won't show up in
+     |      their MRO (Method Resolution Order) nor will method
+     |      implementations defined by the registering ABC be callable (not
+     |      even via super()).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _io._IOBase:
+     |  
+     |  __enter__(...)
+     |  
+     |  __exit__(...)
+     |  
+     |  __iter__(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  isatty(...)
+     |      Return whether this is an 'interactive' stream.
+     |      
+     |      Return False if it can't be determined.
+     |  
+     |  next(...)
+     |      x.next() -> the next value, or raise StopIteration
+     |  
+     |  readlines(...)
+     |      Return a list of lines from the stream.
+     |      
+     |      hint can be specified to control the number of lines read: no more
+     |      lines will be read if the total size (in bytes/characters) of all
+     |      lines so far exceeds hint.
+     |  
+     |  tell(...)
+     |      Return current stream position.
+     |  
+     |  truncate(...)
+     |      Truncate file to size bytes.
+     |      
+     |      File pointer is left unchanged.  Size defaults to the current IO
+     |      position as reported by tell().  Returns the new size.
+     |  
+     |  writelines(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from _io._IOBase:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+FUNCTIONS
+    open(filename, mode='rb', compresslevel=9)
+        Shorthand for GzipFile(filename, mode, compresslevel).
+        
+        The filename argument is required; mode defaults to 'rb'
+        and compresslevel defaults to 9.
+
+DATA
+    __all__ = ['GzipFile', 'open']
+
+

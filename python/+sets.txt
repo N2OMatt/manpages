@@ -1,0 +1,448 @@
+Help on module sets:
+
+NAME
+    sets - Classes to represent arbitrary sets (including sets of sets).
+
+FILE
+    /usr/lib/python2.7/sets.py
+
+MODULE DOCS
+    http://docs.python.org/library/sets
+
+DESCRIPTION
+    This module implements sets using dictionaries whose values are
+    ignored.  The usual operations (union, intersection, deletion, etc.)
+    are provided as both methods and operators.
+    
+    Important: sets are not sequences!  While they support 'x in s',
+    'len(s)', and 'for x in s', none of those operations are unique for
+    sequences; for example, mappings support all three as well.  The
+    characteristic operation for sequences is subscripting with small
+    integers: s[i], for i in range(len(s)).  Sets don't support
+    subscripting at all.  Also, sequences allow multiple occurrences and
+    their elements have a definite order; sets on the other hand don't
+    record multiple occurrences and don't remember the order of element
+    insertion (which is why they don't support s[i]).
+    
+    The following classes are provided:
+    
+    BaseSet -- All the operations common to both mutable and immutable
+        sets. This is an abstract class, not meant to be directly
+        instantiated.
+    
+    Set -- Mutable sets, subclass of BaseSet; not hashable.
+    
+    ImmutableSet -- Immutable sets, subclass of BaseSet; hashable.
+        An iterable argument is mandatory to create an ImmutableSet.
+    
+    _TemporarilyImmutableSet -- A wrapper around a Set, hashable,
+        giving the same hash value as the immutable set equivalent
+        would have.  Do not use this class directly.
+    
+    Only hashable objects can be added to a Set. In particular, you cannot
+    really add a Set as an element to another Set; if you try, what is
+    actually added is an ImmutableSet built from it (it compares equal to
+    the one you tried adding).
+    
+    When you ask if `x in y' where x is a Set and y is a Set or
+    ImmutableSet, x is wrapped into a _TemporarilyImmutableSet z, and
+    what's tested is actually `z in y'.
+
+CLASSES
+    __builtin__.object
+        BaseSet
+            ImmutableSet
+            Set
+    
+    class BaseSet(__builtin__.object)
+     |  Common base class for mutable and immutable sets.
+     |  
+     |  Methods defined here:
+     |  
+     |  __and__(self, other)
+     |      Return the intersection of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in both sets.)
+     |  
+     |  __cmp__(self, other)
+     |  
+     |  __contains__(self, element)
+     |      Report whether an element is a member of a set.
+     |      
+     |      (Called in response to the expression `element in self'.)
+     |  
+     |  __copy__ = copy(self)
+     |  
+     |  __deepcopy__(self, memo)
+     |      Return a deep copy of a set; used by copy module.
+     |  
+     |  __eq__(self, other)
+     |  
+     |  __ge__ = issuperset(self, other)
+     |  
+     |  __gt__(self, other)
+     |  
+     |  __init__(self)
+     |      This is an abstract class.
+     |  
+     |  __iter__(self)
+     |      Return an iterator over the elements or a set.
+     |      
+     |      This is the keys iterator for the underlying dict.
+     |  
+     |  __le__ = issubset(self, other)
+     |  
+     |  __len__(self)
+     |      Return the number of elements of a set.
+     |  
+     |  __lt__(self, other)
+     |  
+     |  __ne__(self, other)
+     |  
+     |  __or__(self, other)
+     |      Return the union of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in either set.)
+     |  
+     |  __repr__(self)
+     |      Return string representation of a set.
+     |      
+     |      This looks like 'Set([<list of elements>])'.
+     |  
+     |  __str__ = __repr__(self)
+     |  
+     |  __sub__(self, other)
+     |      Return the difference of two sets as a new Set.
+     |      
+     |      (I.e. all elements that are in this set and not in the other.)
+     |  
+     |  __xor__(self, other)
+     |      Return the symmetric difference of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in exactly one of the sets.)
+     |  
+     |  copy(self)
+     |      Return a shallow copy of a set.
+     |  
+     |  difference(self, other)
+     |      Return the difference of two sets as a new Set.
+     |      
+     |      (I.e. all elements that are in this set and not in the other.)
+     |  
+     |  intersection(self, other)
+     |      Return the intersection of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in both sets.)
+     |  
+     |  issubset(self, other)
+     |      Report whether another set contains this set.
+     |  
+     |  issuperset(self, other)
+     |      Report whether this set contains another set.
+     |  
+     |  symmetric_difference(self, other)
+     |      Return the symmetric difference of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in exactly one of the sets.)
+     |  
+     |  union(self, other)
+     |      Return the union of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in either set.)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+    
+    class ImmutableSet(BaseSet)
+     |  Immutable set class.
+     |  
+     |  Method resolution order:
+     |      ImmutableSet
+     |      BaseSet
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __getstate__(self)
+     |  
+     |  __hash__(self)
+     |  
+     |  __init__(self, iterable=None)
+     |      Construct an immutable set from an optional iterable.
+     |  
+     |  __setstate__(self, state)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BaseSet:
+     |  
+     |  __and__(self, other)
+     |      Return the intersection of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in both sets.)
+     |  
+     |  __cmp__(self, other)
+     |  
+     |  __contains__(self, element)
+     |      Report whether an element is a member of a set.
+     |      
+     |      (Called in response to the expression `element in self'.)
+     |  
+     |  __copy__ = copy(self)
+     |      Return a shallow copy of a set.
+     |  
+     |  __deepcopy__(self, memo)
+     |      Return a deep copy of a set; used by copy module.
+     |  
+     |  __eq__(self, other)
+     |  
+     |  __ge__ = issuperset(self, other)
+     |      Report whether this set contains another set.
+     |  
+     |  __gt__(self, other)
+     |  
+     |  __iter__(self)
+     |      Return an iterator over the elements or a set.
+     |      
+     |      This is the keys iterator for the underlying dict.
+     |  
+     |  __le__ = issubset(self, other)
+     |      Report whether another set contains this set.
+     |  
+     |  __len__(self)
+     |      Return the number of elements of a set.
+     |  
+     |  __lt__(self, other)
+     |  
+     |  __ne__(self, other)
+     |  
+     |  __or__(self, other)
+     |      Return the union of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in either set.)
+     |  
+     |  __repr__(self)
+     |      Return string representation of a set.
+     |      
+     |      This looks like 'Set([<list of elements>])'.
+     |  
+     |  __str__ = __repr__(self)
+     |      Return string representation of a set.
+     |      
+     |      This looks like 'Set([<list of elements>])'.
+     |  
+     |  __sub__(self, other)
+     |      Return the difference of two sets as a new Set.
+     |      
+     |      (I.e. all elements that are in this set and not in the other.)
+     |  
+     |  __xor__(self, other)
+     |      Return the symmetric difference of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in exactly one of the sets.)
+     |  
+     |  copy(self)
+     |      Return a shallow copy of a set.
+     |  
+     |  difference(self, other)
+     |      Return the difference of two sets as a new Set.
+     |      
+     |      (I.e. all elements that are in this set and not in the other.)
+     |  
+     |  intersection(self, other)
+     |      Return the intersection of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in both sets.)
+     |  
+     |  issubset(self, other)
+     |      Report whether another set contains this set.
+     |  
+     |  issuperset(self, other)
+     |      Report whether this set contains another set.
+     |  
+     |  symmetric_difference(self, other)
+     |      Return the symmetric difference of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in exactly one of the sets.)
+     |  
+     |  union(self, other)
+     |      Return the union of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in either set.)
+    
+    class Set(BaseSet)
+     |  Mutable set class.
+     |  
+     |  Method resolution order:
+     |      Set
+     |      BaseSet
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __as_immutable__(self)
+     |  
+     |  __as_temporarily_immutable__(self)
+     |  
+     |  __getstate__(self)
+     |  
+     |  __iand__(self, other)
+     |      Update a set with the intersection of itself and another.
+     |  
+     |  __init__(self, iterable=None)
+     |      Construct a set from an optional iterable.
+     |  
+     |  __ior__(self, other)
+     |      Update a set with the union of itself and another.
+     |  
+     |  __isub__(self, other)
+     |      Remove all elements of another set from this set.
+     |  
+     |  __ixor__(self, other)
+     |      Update a set with the symmetric difference of itself and another.
+     |  
+     |  __setstate__(self, data)
+     |  
+     |  add(self, element)
+     |      Add an element to a set.
+     |      
+     |      This has no effect if the element is already present.
+     |  
+     |  clear(self)
+     |      Remove all elements from this set.
+     |  
+     |  difference_update(self, other)
+     |      Remove all elements of another set from this set.
+     |  
+     |  discard(self, element)
+     |      Remove an element from a set if it is a member.
+     |      
+     |      If the element is not a member, do nothing.
+     |  
+     |  intersection_update(self, other)
+     |      Update a set with the intersection of itself and another.
+     |  
+     |  pop(self)
+     |      Remove and return an arbitrary set element.
+     |  
+     |  remove(self, element)
+     |      Remove an element from a set; it must be a member.
+     |      
+     |      If the element is not a member, raise a KeyError.
+     |  
+     |  symmetric_difference_update(self, other)
+     |      Update a set with the symmetric difference of itself and another.
+     |  
+     |  union_update(self, other)
+     |      Update a set with the union of itself and another.
+     |  
+     |  update(self, iterable)
+     |      Add all values from an iterable (such as a list or file).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from BaseSet:
+     |  
+     |  __and__(self, other)
+     |      Return the intersection of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in both sets.)
+     |  
+     |  __cmp__(self, other)
+     |  
+     |  __contains__(self, element)
+     |      Report whether an element is a member of a set.
+     |      
+     |      (Called in response to the expression `element in self'.)
+     |  
+     |  __copy__ = copy(self)
+     |      Return a shallow copy of a set.
+     |  
+     |  __deepcopy__(self, memo)
+     |      Return a deep copy of a set; used by copy module.
+     |  
+     |  __eq__(self, other)
+     |  
+     |  __ge__ = issuperset(self, other)
+     |      Report whether this set contains another set.
+     |  
+     |  __gt__(self, other)
+     |  
+     |  __iter__(self)
+     |      Return an iterator over the elements or a set.
+     |      
+     |      This is the keys iterator for the underlying dict.
+     |  
+     |  __le__ = issubset(self, other)
+     |      Report whether another set contains this set.
+     |  
+     |  __len__(self)
+     |      Return the number of elements of a set.
+     |  
+     |  __lt__(self, other)
+     |  
+     |  __ne__(self, other)
+     |  
+     |  __or__(self, other)
+     |      Return the union of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in either set.)
+     |  
+     |  __repr__(self)
+     |      Return string representation of a set.
+     |      
+     |      This looks like 'Set([<list of elements>])'.
+     |  
+     |  __str__ = __repr__(self)
+     |      Return string representation of a set.
+     |      
+     |      This looks like 'Set([<list of elements>])'.
+     |  
+     |  __sub__(self, other)
+     |      Return the difference of two sets as a new Set.
+     |      
+     |      (I.e. all elements that are in this set and not in the other.)
+     |  
+     |  __xor__(self, other)
+     |      Return the symmetric difference of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in exactly one of the sets.)
+     |  
+     |  copy(self)
+     |      Return a shallow copy of a set.
+     |  
+     |  difference(self, other)
+     |      Return the difference of two sets as a new Set.
+     |      
+     |      (I.e. all elements that are in this set and not in the other.)
+     |  
+     |  intersection(self, other)
+     |      Return the intersection of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in both sets.)
+     |  
+     |  issubset(self, other)
+     |      Report whether another set contains this set.
+     |  
+     |  issuperset(self, other)
+     |      Report whether this set contains another set.
+     |  
+     |  symmetric_difference(self, other)
+     |      Return the symmetric difference of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in exactly one of the sets.)
+     |  
+     |  union(self, other)
+     |      Return the union of two sets as a new set.
+     |      
+     |      (I.e. all elements that are in either set.)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from BaseSet:
+     |  
+     |  __hash__ = None
+
+DATA
+    __all__ = ['BaseSet', 'Set', 'ImmutableSet']
+
+

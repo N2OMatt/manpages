@@ -1,0 +1,16 @@
+Help on built-in module _sha256:
+
+NAME
+    _sha256
+
+FILE
+    (built-in)
+
+FUNCTIONS
+    sha224(...)
+        Return a new SHA-224 hash object; optionally initialized with a string.
+    
+    sha256(...)
+        Return a new SHA-256 hash object; optionally initialized with a string.
+
+

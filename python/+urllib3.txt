@@ -1,0 +1,44 @@
+Help on package urllib3:
+
+NAME
+    urllib3 - urllib3 - Thread-safe connection pooling and re-using.
+
+FILE
+    /usr/lib/python2.7/dist-packages/urllib3/__init__.py
+
+PACKAGE CONTENTS
+    _collections
+    connection
+    connectionpool
+    contrib (package)
+    exceptions
+    fields
+    filepost
+    packages (package)
+    poolmanager
+    request
+    response
+    util (package)
+
+FUNCTIONS
+    add_stderr_logger(level=10)
+        Helper for quickly adding a StreamHandler to the logger. Useful for
+        debugging.
+        
+        Returns the handler after adding it.
+    
+    disable_warnings(category=<class 'urllib3.exceptions.HTTPWarning'>)
+        Helper for quickly disabling all urllib3 warnings.
+
+DATA
+    __author__ = 'Andrey Petrov (andrey.petrov@shazow.net)'
+    __license__ = 'MIT'
+    __version__ = '1.9.1'
+
+VERSION
+    1.9.1
+
+AUTHOR
+    Andrey Petrov (andrey.petrov@shazow.net)
+
+

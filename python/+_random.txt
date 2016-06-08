@@ -1,0 +1,45 @@
+Help on built-in module _random:
+
+NAME
+    _random - Module implements the Mersenne Twister random number generator.
+
+FILE
+    (built-in)
+
+CLASSES
+    __builtin__.object
+        Random
+    
+    class Random(__builtin__.object)
+     |  Random() -> create a random number generator with its own internal state.
+     |  
+     |  Methods defined here:
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  getrandbits(...)
+     |      getrandbits(k) -> x.  Generates a long int with k random bits.
+     |  
+     |  getstate(...)
+     |      getstate() -> tuple containing the current state.
+     |  
+     |  jumpahead(...)
+     |      jumpahead(int) -> None.  Create new state from existing state and integer.
+     |  
+     |  random(...)
+     |      random() -> x in the interval [0, 1).
+     |  
+     |  seed(...)
+     |      seed([n]) -> None.  Defaults to current time.
+     |  
+     |  setstate(...)
+     |      setstate(state) -> None.  Restores generator state.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+
+

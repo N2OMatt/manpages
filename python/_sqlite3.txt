@@ -1,0 +1,1024 @@
+Help on module _sqlite3:
+
+NAME
+    _sqlite3
+
+FILE
+    /usr/lib/python2.7/lib-dynload/_sqlite3.x86_64-linux-gnu.so
+
+MODULE DOCS
+    http://docs.python.org/library/_sqlite3
+
+CLASSES
+    __builtin__.object
+        sqlite3.Cache
+        sqlite3.Connection
+        sqlite3.Cursor
+        sqlite3.PrepareProtocol
+        sqlite3.Row
+        sqlite3.Statement
+    exceptions.StandardError(exceptions.Exception)
+        sqlite3.Error
+            sqlite3.DatabaseError
+                sqlite3.DataError
+                sqlite3.IntegrityError
+                sqlite3.InternalError
+                sqlite3.NotSupportedError
+                sqlite3.OperationalError
+                sqlite3.ProgrammingError
+            sqlite3.InterfaceError
+        sqlite3.Warning
+    
+    class Cache(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  display(...)
+     |      For debugging only.
+     |  
+     |  get(...)
+     |      Gets an entry from the cache or calls the factory function to produce one.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class Connection(__builtin__.object)
+     |  SQLite database connection object.
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(...)
+     |      x.__call__(...) <==> x(...)
+     |  
+     |  __enter__(...)
+     |      For context manager. Non-standard.
+     |  
+     |  __exit__(...)
+     |      For context manager. Non-standard.
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  close(...)
+     |      Closes the connection.
+     |  
+     |  commit(...)
+     |      Commit the current transaction.
+     |  
+     |  create_aggregate(...)
+     |      Creates a new aggregate. Non-standard.
+     |  
+     |  create_collation(...)
+     |      Creates a collation function. Non-standard.
+     |  
+     |  create_function(...)
+     |      Creates a new function. Non-standard.
+     |  
+     |  cursor(...)
+     |      Return a cursor for the connection.
+     |  
+     |  enable_load_extension(...)
+     |      Enable dynamic loading of SQLite extension modules. Non-standard.
+     |  
+     |  execute(...)
+     |      Executes a SQL statement. Non-standard.
+     |  
+     |  executemany(...)
+     |      Repeatedly executes a SQL statement. Non-standard.
+     |  
+     |  executescript(...)
+     |      Executes a multiple SQL statements at once. Non-standard.
+     |  
+     |  interrupt(...)
+     |      Abort any pending database operation. Non-standard.
+     |  
+     |  iterdump(...)
+     |      Returns iterator to the dump of the database in an SQL text format. Non-standard.
+     |  
+     |  load_extension(...)
+     |      Load SQLite extension module. Non-standard.
+     |  
+     |  rollback(...)
+     |      Roll back the current transaction.
+     |  
+     |  set_authorizer(...)
+     |      Sets authorizer callback. Non-standard.
+     |  
+     |  set_progress_handler(...)
+     |      Sets progress handler callback. Non-standard.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  DataError
+     |  
+     |  DatabaseError
+     |  
+     |  Error
+     |  
+     |  IntegrityError
+     |  
+     |  InterfaceError
+     |  
+     |  InternalError
+     |  
+     |  NotSupportedError
+     |  
+     |  OperationalError
+     |  
+     |  ProgrammingError
+     |  
+     |  Warning
+     |  
+     |  isolation_level
+     |  
+     |  row_factory
+     |  
+     |  text_factory
+     |  
+     |  total_changes
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class Cursor(__builtin__.object)
+     |  SQLite database cursor class.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  __iter__(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  close(...)
+     |      Closes the cursor.
+     |  
+     |  execute(...)
+     |      Executes a SQL statement.
+     |  
+     |  executemany(...)
+     |      Repeatedly executes a SQL statement.
+     |  
+     |  executescript(...)
+     |      Executes a multiple SQL statements at once. Non-standard.
+     |  
+     |  fetchall(...)
+     |      Fetches all rows from the resultset.
+     |  
+     |  fetchmany(...)
+     |      Fetches several rows from the resultset.
+     |  
+     |  fetchone(...)
+     |      Fetches one row from the resultset.
+     |  
+     |  next(...)
+     |      x.next() -> the next value, or raise StopIteration
+     |  
+     |  setinputsizes(...)
+     |      Required by DB-API. Does nothing in pysqlite.
+     |  
+     |  setoutputsize(...)
+     |      Required by DB-API. Does nothing in pysqlite.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  arraysize
+     |  
+     |  connection
+     |  
+     |  description
+     |  
+     |  lastrowid
+     |  
+     |  row_factory
+     |  
+     |  rowcount
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class DataError(DatabaseError)
+     |  Method resolution order:
+     |      DataError
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class DatabaseError(Error)
+     |  Method resolution order:
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class Error(exceptions.StandardError)
+     |  Method resolution order:
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class IntegrityError(DatabaseError)
+     |  Method resolution order:
+     |      IntegrityError
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class InterfaceError(Error)
+     |  Method resolution order:
+     |      InterfaceError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class InternalError(DatabaseError)
+     |  Method resolution order:
+     |      InternalError
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class NotSupportedError(DatabaseError)
+     |  Method resolution order:
+     |      NotSupportedError
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class OperationalError(DatabaseError)
+     |  Method resolution order:
+     |      OperationalError
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class PrepareProtocol(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class ProgrammingError(DatabaseError)
+     |  Method resolution order:
+     |      ProgrammingError
+     |      DatabaseError
+     |      Error
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors inherited from Error:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class Row(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  __eq__(...)
+     |      x.__eq__(y) <==> x==y
+     |  
+     |  __ge__(...)
+     |      x.__ge__(y) <==> x>=y
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __gt__(...)
+     |      x.__gt__(y) <==> x>y
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __iter__(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  __le__(...)
+     |      x.__le__(y) <==> x<=y
+     |  
+     |  __len__(...)
+     |      x.__len__() <==> len(x)
+     |  
+     |  __lt__(...)
+     |      x.__lt__(y) <==> x<y
+     |  
+     |  __ne__(...)
+     |      x.__ne__(y) <==> x!=y
+     |  
+     |  keys(...)
+     |      Returns the keys of the row.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class Statement(__builtin__.object)
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+    
+    class Warning(exceptions.StandardError)
+     |  Method resolution order:
+     |      Warning
+     |      exceptions.StandardError
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.StandardError:
+     |  
+     |  __init__(...)
+     |      x.__init__(...) initializes x; see help(type(x)) for signature
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.StandardError:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+FUNCTIONS
+    adapt(...)
+        adapt(obj, protocol, alternate) -> adapt obj to given protocol. Non-standard.
+    
+    complete_statement(...)
+        complete_statement(sql)
+        
+        Checks if a string contains a complete SQL statement. Non-standard.
+    
+    connect(...)
+        connect(database[, timeout, isolation_level, detect_types, factory])
+        
+        Opens a connection to the SQLite database file *database*. You can use
+        ":memory:" to open a database connection to a database that resides in
+        RAM instead of on disk.
+    
+    enable_callback_tracebacks(...)
+        enable_callback_tracebacks(flag)
+        
+        Enable or disable callback functions throwing errors to stderr.
+    
+    enable_shared_cache(...)
+        enable_shared_cache(do_enable)
+        
+        Enable or disable shared cache mode for the calling thread.
+        Experimental/Non-standard.
+    
+    register_adapter(...)
+        register_adapter(type, callable)
+        
+        Registers an adapter with pysqlite's adapter registry. Non-standard.
+    
+    register_converter(...)
+        register_converter(typename, callable)
+        
+        Registers a converter with pysqlite. Non-standard.
+
+DATA
+    PARSE_COLNAMES = 2
+    PARSE_DECLTYPES = 1
+    SQLITE_ALTER_TABLE = 26
+    SQLITE_ANALYZE = 28
+    SQLITE_ATTACH = 24
+    SQLITE_CREATE_INDEX = 1
+    SQLITE_CREATE_TABLE = 2
+    SQLITE_CREATE_TEMP_INDEX = 3
+    SQLITE_CREATE_TEMP_TABLE = 4
+    SQLITE_CREATE_TEMP_TRIGGER = 5
+    SQLITE_CREATE_TEMP_VIEW = 6
+    SQLITE_CREATE_TRIGGER = 7
+    SQLITE_CREATE_VIEW = 8
+    SQLITE_DELETE = 9
+    SQLITE_DENY = 1
+    SQLITE_DETACH = 25
+    SQLITE_DROP_INDEX = 10
+    SQLITE_DROP_TABLE = 11
+    SQLITE_DROP_TEMP_INDEX = 12
+    SQLITE_DROP_TEMP_TABLE = 13
+    SQLITE_DROP_TEMP_TRIGGER = 14
+    SQLITE_DROP_TEMP_VIEW = 15
+    SQLITE_DROP_TRIGGER = 16
+    SQLITE_DROP_VIEW = 17
+    SQLITE_IGNORE = 2
+    SQLITE_INSERT = 18
+    SQLITE_OK = 0
+    SQLITE_PRAGMA = 19
+    SQLITE_READ = 20
+    SQLITE_REINDEX = 27
+    SQLITE_SELECT = 21
+    SQLITE_TRANSACTION = 22
+    SQLITE_UPDATE = 23
+    adapters = {}
+    converters = {}
+    sqlite_version = '3.8.7.4'
+    version = '2.6.0'
+
+

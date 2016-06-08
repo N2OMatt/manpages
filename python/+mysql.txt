@@ -1,0 +1,13 @@
+Help on package mysql:
+
+NAME
+    mysql
+
+FILE
+    /usr/lib/python2.7/dist-packages/mysql/__init__.py
+
+PACKAGE CONTENTS
+    connector (package)
+    utilities (package)
+
+
